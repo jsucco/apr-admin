@@ -1,0 +1,286 @@
+﻿<h1 class="nav-content-header">Flagboards</h1>
+<div class="manage-pp-container">
+    <div class="manage-pad" style="grid-row:1; grid-column: 1 / span 1;">
+        <h2>Flagboard Manager</h2>
+        <div class="auto-expand">
+            <label for="CtxDB">Select DataBase: </label>
+            <select id="CtxDB"><option value="">SELECT DB</option></select>
+        </div>
+        <div id="fb_holder" class="auto-expand">
+            <table  id="fb_grid"></table>
+            <div id="fb_pager"></div>
+        </div>
+        <div class="auto-expand">
+            <input id="fb_add" type="button" value="ADD" class="crud" />
+            <input id="fb_edit" type="button" value="EDIT" class="crud" />
+            <input id="fb_save" disabled type="button" value="SAVE" class="crud" />
+            <input id="fb_cancel" disabled type="button" value="CANCEL" class="crud" />
+        </div>
+    </div>
+
+</div>
+
+<style type="text/css">
+    .jqgfirstrow{
+        height: 0px !important; 
+    }
+</style>
+<link type="text/css" href="~/Content/select2/select2.css" rel="stylesheet" />
+<script type="text/javascript" src="~/Scripts/select2/select2.js"></script>
+
+<script type="text/javascript">
+
+    var SelCID = @Html.Raw(Json.Encode(Model.SelCID)); 
+
+    $(function () {
+        var lcdata = @Html.Raw(Json.Encode(Model.corpdata)); 
+        var fbdata = @Html.Raw(Json.Encode(Model.fbdata));
+
+        controls.LoadLocations(lcdata); 
+        controls.LoadFlagboards(fbdata); 
+
+        $("#CtxDB").select2({
+            placeholder: "Select Location",
+            closeOnSelect: true
+        })
+        console.log(SelCID); 
+        $("#CtxDB").val(SelCID).trigger('change'); 
+
+        $("#CtxDB").change(function(e) { 
+            SelCID = $(this).val();
+            controls.refresh(); 
+        });
+
+        $(".crud").click(function (e) {
+            var target = e.currentTarget.id;
+
+            if (SelCID.toString().length < 6) 
+            {
+                alert("Must select database");
+                return; 
+            }
+            console.log(target);
+            switch (target) {
+                case 'fb_add':
+                    controls.HasNewRow = true;
+                    $("#fb_grid").jqGrid('addRow', {rowID: "newrow_" + controls.NewRowCount});
+                    controls.ActionMethod = target;
+                    this.disabled = 'true'
+                    $("#fb_edit").prop("disabled", true);
+                    $("#fb_save").removeAttr("disabled");
+                    $("#fb_cancel").removeAttr("disabled");
+                    controls.SelectedRow = "newrow_" + controls.NewRowCount;
+                    break;
+                case 'fb_edit':
+                    if (controls.SelectedRow.MFB == 0) {
+                        alert("no row selected.");
+                        return;
+                    }
+                    controls.ActionMethod = target;
+                    $("#fb_grid").jqGrid('editRow', controls.SelectedRow.MFB);
+                    $("#fb_add").prop("disabled", true);
+                    $("#fb_edit").prop("disabled", true);
+                    $("#fb_save").removeAttr("disabled");
+                    $("#fb_cancel").removeAttr("disabled");
+                    break;
+                case 'fb_save':
+                    console.log("fb_save", controls.SelectedRow);
+                    this.disabled = 'true';
+                    controls.HasNewRow = false;
+                    controls.NewRowCount++;
+                    controls.dispatchFB(controls.ActionMethod); 
+                    $("#fb_save").prop("disabled", true);
+                    $("#fb_cancel").prop("disabled", true);
+                    $("#fb_add").removeAttr("disabled");
+                    $("#fb_edit").removeAttr("disabled");
+                    controls.ActionMethod = "";
+                    break;
+                case 'fb_cancel':
+                    controls.HasNewRow = false;
+                    $("#fb_grid").jqGrid('restoreRow', "newrow_" + controls.NewRowCount);
+                    $("#fb_grid").jqGrid('restoreRow', controls.SelectedRow.MFB);
+                    $("#fb_save").prop("disabled", true);
+                    $("#fb_cancel").prop("disabled", true);
+                    $("#fb_add").removeAttr("disabled");
+                    $("#fb_edit").removeAttr("disabled");
+                    controls.ActionMethod = "";
+                    break;
+                case 'wr_add': 
+                    $("#dialog-add-workroom").dialog("open"); 
+                    break; 
+            }
+        }); 
+    });
+
+    var controls = {
+        LoadLocations: function (array) {
+            var html = [];
+
+            html.push('<option value="000000">SELECT OPTION</option>');
+
+            if (!!array) {
+                for (var i = 0; i < array.length; i++) {
+                    var cidStr = array[i].CID.toString();
+
+                    html.push('<option value="' + cidStr.trim() + '">' + array[i].CorporateName + '</option>');
+                };
+
+                $("#CtxDB").html(html.join(''));
+
+                if (SelCID != null && SelCID.toString().length == 6) { 
+                    $("#CtxDB").val(SelCID); 
+                } else { 
+                    $("#CtxDB").val("000000"); 
+                }
+                
+            }
+        },
+        LoadFlagboards: function(array) { 
+            $("#fb_grid").jqGrid({
+                datatype: "local",
+                data: array, 
+                colNames: ['MFB_Id', 'UserID', 'Name'],
+                colModel: [
+                    { name: 'MFB_Id', index: 'MFB_Id', editable: false },
+                    { name: 'UserID', index: 'UserID', editable: false },
+                    { name: 'Loc_Description', index: 'Loc_Description', editable: true }
+                ],
+                pager: "#fb_pager", 
+                Caption: "Manage Flagboards by Location", 
+                height: '100%',
+                multiselect: false, 
+                loadonce: false, 
+                gridview: true, 
+                scroll: true,
+                width: 500,  
+                shrinkToFit: false,
+                autowidth: false,
+                onSelectRow: function(rowid) { 
+                    var ID_cell = $("#" + rowid).find("td[aria-describedby='fb_grid_MFB_Id']").html(); 
+
+                    console.log(rowid, ID_cell);  
+
+                    if (ID_cell == "&nbsp;") 
+                        controls.SelectedDataId.MFB = new Number(0); 
+                    else 
+                        controls.SelectedDataId.MFB = new Number(ID_cell);
+
+                    console.log(controls.SelectedDataId.MFB); 
+
+                    controls.SelectedRow.MFB = rowid; 
+                }, 
+                ondblClickRow: function(row, iCol, cellcontent, e) {
+                    var ID_cell = $("#" + rowid).find("td[aria-describedby='fb_grid_MFB_Id']").html(); 
+
+                    controls.SelectedDataId.MFB = new Number(ID_cell); 
+                    controls.SelectedRow.MFB = row; 
+
+                    if (controls.SelectedDataId.MFB > 0) {
+                        $("#fb_grid").jqGrid('editRow', row);
+                        $("#fb_grid_save", "#cancel").attr("disabled", false);
+                    }
+                },
+                onPaging: function(pg) {
+
+                    var lastpage = $("#fb_grid").getGridParam('lastpage')
+
+                    switch (pg) {
+                        case 'next_pager':
+                            if (controls.SelectedPage.MFB < lastpage) {
+                                controls.SelectedPage.MFB = controls.SelectedPage.MFB + 1
+                            }
+                            break;
+                        case 'prev_pager':
+                            if (controls.SelectedPage.MFB > 1) {
+                                controls.SelectedPage.MFB = controls.SelectedPage.MFB - 1
+                            }
+                            break;
+                        case 'last_pager':
+                            grid.SelectedPage.MFB = lastpage
+                            break;
+                        case 'first_pager':
+                            grid.SelectedPage.MFB = 1
+                            break;
+                    }
+                }
+
+            })
+        },
+        SelectedDataId: { MFB : 0 },
+        SelectedRow: { MFB : 0 },
+        SelectedPage: {MFB : 1 },
+        NewRowCount: 0,
+        HasNewRow: false, 
+        ActionMethod: "", 
+        dispatchFB: function(method_) { 
+            var edit_arr = {
+                MFB_Id: "",
+                UserID: "",
+                Loc_Description: "",
+            };
+
+            if (method_ == '')
+            {
+                alert("Workroom grid action method error.");
+                return;
+            }
+
+            $("#fb_grid .editable").each(function(index, value) {
+                console.log(index, value);
+                console.log($(this).val(), $(this).attr('name'));
+                var elem_id = $(this).attr('name');
+                if (elem_id == 'MFB_Id')
+                    edit_arr.MFB_Id = $(this).val();
+                if (elem_id == 'UserID')
+                    edit_arr.UserID = $(this).val();
+                if (elem_id == 'Loc_Description')
+                    edit_arr.Loc_Description = $(this).val(); 
+            });
+            console.log(edit_arr, controls.SelectedDataId.MFB);
+            console.log(SelCID); 
+            console.log(method_); 
+            $.ajax({
+                url: '/Manage/SaveFB',
+                type: 'POST',
+                data: {method: method_, MFBId: controls.SelectedDataId.MFB, Desc: edit_arr.Loc_Description, CID: SelCID},
+                success: function(data, text, jax) {
+                    console.log("dispatch", data);
+                    console.log("selectedRow", controls.SelectedRow); 
+                    if (data.Result == true) {
+                        console.log(controls.ActionMethod);                       
+                        controls.refresh();
+                        controls.ActionMethod == "";
+                        $("#fb_grid").jqGrid('saveRow', controls.SelectedRow);
+                        if (!!controls.SelectedRow.MFB)
+                            $("#fb_grid").jqGrid('saveRow', controls.SelectedRow.MFB);
+                    } else {
+                        alert(data.ErrorMessage);
+                    }
+                },
+                error: function(data) {
+                    alert(data);
+                }
+            });
+        },
+        refresh: function() { 
+            $.ajax({
+                url: '/Manage/RefreshFB',
+                type: 'POST',
+                data: {CID: SelCID}, 
+                success: function(grid_data) {
+                    console.log('grid_data', grid_data);
+                    console.log('selected page', controls.SelectedPage.MFB);
+                    
+                    jQuery("#fb_grid").jqGrid('clearGridData', true);
+                    jQuery("#fb_grid").jqGrid('setGridParam', {data : grid_data, page: controls.SelectedPage.MFB}).trigger('reloadGrid');
+                     
+                },
+                error: function(data) {
+                    alert(data);
+                }
+            });
+        }
+    };
+
+
+</script>

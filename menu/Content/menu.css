@@ -1,0 +1,199 @@
+﻿.buttonpad { 
+    background-color: #d1d4df;
+    height: 200px;
+    margin-right: 2px;
+    margin-left: 2px;
+    margin-top: 2px; 
+    margin-bottom: 2px; 
+    min-width: 300px;
+    min-height:220px; 
+}
+
+.adminpad { 
+    background-color: #d1d4df;
+    height: 200px;
+    margin-right: 2px;
+    margin-left: 2px;
+    margin-top: 2px; 
+    margin-bottom: 2px; 
+    min-width: 300px;
+}
+
+.menupad { 
+    min-height:800px;
+    overflow: hidden;
+    background-color: whitesmoke;
+}
+
+.menu-box-label { 
+     margin-left: 40px;
+    margin-top: 20px;
+    position: relative;
+    top: 20px;
+    font-size: large;
+}
+
+.menubox { 
+    padding-right: 15px; 
+    padding-left: 15px; 
+    margin-left: auto;
+    margin-right: auto;
+    border: solid;
+    border-radius: 15px;
+    border-width: 1px;
+    padding-top: 20px;
+    padding: 24px;
+    grid-gap: 7px;
+    padding-bottom: 70px; 
+    justify-content:space-around;
+    grid-auto-columns: 23%;
+}
+.adminbox { 
+    padding-right: 15px; 
+    padding-left: 15px; 
+    margin-left: auto;
+    margin-right: auto;
+    border: solid;
+    border-radius: 15px;
+    border-width: 1px;
+    padding-top: 20px;
+    padding: 24px;
+    grid-gap: 7px;
+    padding-bottom: 70px; 
+}
+
+.grid-item { 
+    align-self:stretch;
+}
+
+.search-icon { 
+   background:url(Images/Search-26.png) no-repeat left center;
+   position: relative; 
+   float: right;
+}
+
+.search-icon:hover { 
+    background:url(Images/Search-26-white.png) no-repeat left center;
+}
+
+.buttonpad:hover { 
+    background: #428bca;
+    cursor: pointer;
+}
+.buttonpad:active { 
+  box-shadow: 0 3px #666;
+  transform: translateY(3px);
+  background: #74a6d2;
+}
+.systems-icon { 
+    background: url('Images/Gears Filled-50.png') no-repeat left center;
+    position: relative; 
+    float: right;
+    margin-right: 15px
+}
+
+.excel-icon { 
+    background: url('Images/icons8-Microsoft Excel Filled-50.png') no-repeat left center;
+    position: relative; 
+    float: right;
+    margin-right: 15px;
+}
+
+.excel-old-icon { 
+    background: url('Images/Microsoft Excel Filled-50.png') no-repeat left center;
+    position: relative; 
+    float: right;
+    margin-right: 15px;
+}
+
+.maintenance-icon { 
+    background: url('Images/Maintenance Filled-50-dark.png') no-repeat left center;
+    position: relative; 
+    float: right;
+    margin-right: 15px;
+}
+
+.button-icon {  
+    height:60px;
+    width: 50px; 
+}
+
+#ADMIN { 
+    background-color: #717073;
+    -webkit-border-radius: 0px;
+    box-shadow: 5px 15px 15px rgba(0,0,0,.7);
+    -webkit-box-shadow: 5px 15px 15px rgba(0,0,0,.7);
+    -moz-box-shadow: 5px 15px 15px rgba(0,0,0,.7);
+    outline:none;
+    max-width: 380px;
+    height: 150px;
+}
+
+#menuBoxA{ 
+    position: relative;
+    margin-top: 25px;
+    display: grid;
+    margin-top: 10px;
+    border: none;
+    height: 190px;
+    padding-left: 60px;
+}
+
+.QA { 
+    background-color: #ce1c4b; 
+    -webkit-border-radius: 0px;
+    box-shadow: 5px 15px 15px rgba(0,0,0,.7);
+    -webkit-box-shadow: 5px 15px 15px rgba(0,0,0,.7);
+    -moz-box-shadow: 5px 15px 15px rgba(0,0,0,.7);
+    outline:none;
+}
+
+.CTX { 
+    background-color: #C9C1B8; 
+    -webkit-border-radius: 0px;
+    box-shadow: 5px 15px 15px rgba(0,0,0,.7);
+    -webkit-box-shadow: 5px 15px 15px rgba(0,0,0,.7);
+    -moz-box-shadow: 5px 15px 15px rgba(0,0,0,.7);
+    outline:none;
+}
+
+.DA { 
+    background-color: black;
+    color: white;
+    -webkit-border-radius: 0px;
+    box-shadow: 5px 15px 15px rgba(0,0,0,.7);
+    -webkit-box-shadow: 5px 15px 15px rgba(0,0,0,.7);
+    -moz-box-shadow: 5px 15px 15px rgba(0,0,0,.7);
+    outline:none;
+}
+
+.FLG { 
+    background-color: #3569d9; 
+    -webkit-border-radius: 0px;
+    box-shadow: 5px 15px 15px rgba(0,0,0,.7);
+    -webkit-box-shadow: 5px 15px 15px rgba(0,0,0,.7);
+    -moz-box-shadow: 5px 15px 15px rgba(0,0,0,.7);
+    outline:none;
+}
+.dropdown-pad { 
+    display:block; 
+    overflow:auto; 
+    width:100%; 
+}
+
+.option { 
+    cursor: pointer;
+    height: 60px;
+    text-align: center;
+    vertical-align: middle;
+    padding-top: 20px;
+}
+
+.option:hover{
+    background: #428bca;
+}
+
+#ADMIN:hover { 
+    background-color: #428bca;
+    cursor: pointer;
+}

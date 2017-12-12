@@ -1,0 +1,89 @@
+﻿@model menu.Models.ApplicationsViewModel
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<link type="text/css" href="~/Content/menu.css" rel="stylesheet"/>
+<div class="row">
+    <div style="position:absolute; top:100px; right:200px;">
+        The current time is: @(DateTime.Now.ToString("T"))
+    </div>
+    <div id="pad" class="menupad">
+        <div id="menuBoxA" class="adminbox">
+            
+            @foreach (var app in Model.Apps)
+            {
+                if (Model != null && Model.Apps != null && app.section == "ADMIN")
+                {
+                    <div class="adminpad AD" id="@app.Id" onclick="location.href='@(app.AppUrl)';" style="grid-row: @app.GridRow; grid-column: @app.GridCol / span @app.ColSpan">
+                        <div class="button-icon @(app.cssClass)-icon"></div>
+                        <br />
+                        <h2>@app.text</h2>
+                    </div>            
+                 }
+
+            }
+            <div class="buttonpad" style="grid-row:1; grid-column: 2 / span 1; background-color:transparent;">
+            </div>          
+        </div>
+        @*<label class="menu-box-label">QA</label>*@
+        <div id="menuBoxB" class="menubox" style="position:relative; margin-top:25px; display: grid;">
+            
+            @foreach (var app in Model.Apps)
+            {
+                if (Model != null && Model.Apps != null && app.section != "ADMIN")
+                {
+                    <div class="grid-item" style="min-height:220px; grid-row: @app.GridRow; grid-column: @app.GridCol / span @app.ColSpan">
+                        <div id="@app.Id" @if (app.AppUrl != "NA") {
+                            @: onclick="location.href = '@(app.AppUrl)';"
+                        }  class="buttonpad @app.section" style="width:100%;">
+                            <div class="button-icon @(app.cssClass)-icon">
+                            </div>
+                            <br />
+                            <h2>@app.text</h2>
+                        </div>        
+                        @if (app.Dropdowns != null && app.Dropdowns.Length > 0) { 
+                            <div id="@app.Id-dropdown" style="display:none;" class="dropdown-pad @app.section">
+                                @foreach (var option in app.Dropdowns)
+                                {
+                                    <div class="option" id="@option.Id" name="@option.name" onclick="location.href = '@(option.AppUrl)';">@option.text</div>
+                                }
+                            </div>
+                        }    
+                    </div>
+                }               
+            }
+
+        </div>
+        
+    </div>
+    
+</div>
+<script type="text/javascript" src="~/Scripts/jquery-1.11.1.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $(".buttonpad").click(function (e) {
+            console.log(e);
+            var appid = $(this).attr('id');
+            console.log($(this).attr('id'));
+            if ($("#" + appid + "-dropdown").is(":visible")) {
+                $("#" + appid + "-dropdown").slideUp('slow');
+            } else {
+                $("#" + appid + "-dropdown").slideDown('slow');
+            }
+        });
+        var bh = screen.height / 3.8;
+        var mh = screen.height / 2; 
+        $(".buttonpad").css("height", bh.toString() + "px");
+        $("#menuBoxB").css("min-height", mh.toString() + "px");
+
+        $.ajax({
+            url: "http://coredemo2.standardtextile.com/api/CurrentJobs/5/4",
+            dataType: "json", 
+            success: function (data) {
+                console.log("currentjobs-result", data); 
+            }
+        });
+    });
+    
+</script>

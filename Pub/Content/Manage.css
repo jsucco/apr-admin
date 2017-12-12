@@ -1,0 +1,145 @@
+﻿.PageLayout-Panels { 
+    width: 100%; 
+    min-height:438px; 
+}
+div { 
+    display:block;
+}
+
+#manage-nav-container { 
+    left: 0px;
+    display: block; 
+    position:absolute; 
+    top: 70px; 
+    height:100%; 
+    transition: all .367s cubic-bezier(.1,.9,.2,1);
+    transition-property: all;
+    transition-duration: 0.367s;
+    transition-timing-function: cubic-bezier(0.1, 0.9, 0.2, 1);
+    transition-delay: initial;
+    background-color: #acaab1;
+}
+
+#manage-index-maincontent { 
+    right: 0px; 
+    top: 0;
+    bottom: 0;
+    position: absolute;
+    background-color: #f4f4f4;
+    overflow: auto;
+    -webkit-transition: all .367s cubic-bezier(.1,.9,.2,1);
+    transition: all .367s cubic-bezier(.1,.9,.2,1);
+}
+
+.content-left { 
+    left: 232px; 
+    position: relative;
+}
+
+.full-width { 
+    width:232px; 
+}
+
+.back-arrow { 
+    background: url(/Content/Images/Back-26.png) no-repeat left center;
+    float:right;
+    padding: 15px 0px 10px 30px;
+    float: right;
+    width: 5px;
+    text-decoration: none;
+    font-size: 50px;
+    color: rgb(94, 136, 162);
+    font-family: 'OpenSans-Light';
+}
+
+.manage-nav-item-chevron { 
+    display: table;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    width: 100%;
+    text-decoration: none;
+    cursor: pointer;
+    top: -15px;
+}
+
+li { 
+    list-style-type: none;
+}
+
+li:hover {
+    cursor: pointer;
+}
+
+.list-row:hover { 
+    background-color: rgb(137, 134, 144);
+}
+.list-label:hover { 
+    cursor:pointer;
+}
+.ms-Icon {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    display: inline-block;
+    font-family: Office365Icons;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1;
+    speak: none;
+    width:30px; 
+}
+
+.icon-text { 
+    padding-right: 20px;
+    padding-left: 5px; 
+    display: table-cell; 
+    vertical-align:middle; 
+    word-wrap: break-word; 
+    -webkit-transition: all .367s cubic-bezier(.1,.9,.2,1);
+    transition: all .367s cubic-bezier(.1,.9,.2,1);
+    width: 75%;
+    color:white;
+    text-decoration:none;
+}
+
+.icon-img {  
+    vertical-align: middle;
+    padding-left:12px;
+}
+
+.manage-nav-item { 
+    width: 100%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    display: table;
+}
+
+.nav-content-header { 
+    color: #726a6a;
+}
+
+.nav-row-selected { 
+    background-color: #d9d6d6;
+}
+.manage-pp-container { 
+    display:grid; 
+    overflow:auto; 
+    width:98%; 
+    margin:auto; 
+}
+
+.manage-pad { 
+    grid-row: 1;
+    grid-column: 1 / span 1;
+    display: grid;
+    background: white;
+    margin-bottom: 20px;
+    border-style: outset;
+    border-width: 1px;
+    border-radius: 5px;
+    max-width:570px;
+}
+
+.auto-expand { 
+    display:block;
+    overflow:auto;
+}

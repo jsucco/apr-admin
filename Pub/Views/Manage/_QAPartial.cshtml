@@ -1,0 +1,388 @@
+﻿@model menu.Models.QAPartialViewModel
+@*<link type="text/css" rel="stylesheet" href="~/Content/Manage.css" />*@
+
+<h1 class="nav-content-header">Qaulity Assurance</h1>
+<div class="manage-pp-container">
+    <div class="manage-pad" style="grid-row:1; grid-column: 1 / span 1;">
+        <h2>Location Manager</h2>
+        <div id="wr_holder" class="auto-expand">
+            <table style="height:330px;" id="wr_grid"></table>
+            <div id="wr_pager"></div>
+        </div>
+        <div style="position:relative; top:-5px;" class="auto-expand">
+            <input id="wr_add" type="button" value="ACTIVATE" class="crud" /> 
+        </div>
+    </div>
+    <div class="manage-pad" style="grid-row:1; grid-column: 2 / span 1;">
+        <h2>Workrooms</h2>
+        <div id="wrlst_holder" class="auto-expand">
+            <table id="wrlst_grid"></table>
+            <div id="wrlst_pager"></div>
+        </div>
+        <div class="auto-expand">
+            <input id="wrlst_add" type="button" value="ADD" class="crud" />
+            <input id="wrlst_edit" type="button" value="EDIT" class="crud" />
+            <input id="wrlst_save" disabled type="button" value="SAVE" class="crud" />
+            <input id="wrlst_delete" type="button" value="DELETE" class="crud" />
+            <input id="wrlst_cancel" disabled type="button" value="CANCEL" class="crud" />
+        </div>
+    </div>
+    <div id="dialog-add-workroom" title="Activate Workroom?" style="display:none;">
+        <p><span class="ui-icon ui-icon-alert" style="float:left; margin:12px 12px 20px 0;"></span>Select a Workroom to Active.  Inserts Into currently selected Location.</p>
+        <label for="Workroom-selection">Workroom: </label><select id="Workroom-selection" style="margin-left:20px; min-width: 150px; min-height:35px;"><option value="NA">NA</option></select>
+        <div style="width:100%; height: 40px; margin: 10px auto 0px auto;">
+            <label>Selected Location: </label><input type="text" id="active-location-label" readonly style="background-color:transparent; border: none;" value="none" />
+        </div>
+        <div style="width:100%; height:90px; margin:30px auto 0px auto; text-align:center;">
+            <label id="dialog-errorlabel" style="font-style:oblique; font-weight:700;"></label>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        var lcdata = @Html.Raw(Json.Encode(Model.locdata));
+        var wrdata = @Html.Raw(Json.Encode(Model.wrdata));
+        var SelectedLmId= 0; 
+        console.log(lcdata);
+        grids.LoadManager(lcdata);
+        grids.LoadWorkrooms(wrdata);
+        grids.LoadWorkroomsDialog(wrdata); 
+
+        $( "#dialog-add-workroom" ).dialog({
+            resizable: false,
+            height: "auto",
+            width: 400,
+            height:350,
+            modal: true,
+            autoOpen: false,
+            buttons: {
+                "ACTIVATE": function() {
+                    var WorkroomId = $("#Workroom-selection").val(); 
+                    console.log("WorkroomId", WorkroomId)
+                    grids.ActivateWorkroom(WorkroomId);
+                },
+                close: function() {
+                    $("#dialog-errorlabel").text(""); 
+                    $( this ).dialog( "close" );
+                }
+            }
+        });
+        $(".crud").click(function (e) {
+            var target = e.currentTarget.id;
+            console.log(target);
+            switch (target) {
+                case 'wrlst_add':
+                    grids.HasNewRow = true;
+                    $("#wrlst_grid").jqGrid('addRow', {rowID: "newrow_" + grids.NewRowCount});
+                    grids.ActionMethod = target;
+                    this.disabled = 'true'
+                    $("#wrlst_edit").prop("disabled", true);
+                    $("#wrlst_delete").prop("disabled", true);
+                    $("#wrlst_save").removeAttr("disabled");
+                    $("#wrlst_cancel").removeAttr("disabled");
+                    grids.SelectedRow = "newrow_" + grids.NewRowCount;
+                    break;
+                case 'wrlst_edit':
+                    if (grids.SelectedRow == 0) {
+                        alert("no row selected.");
+                        return;
+                    }
+                    grids.ActionMethod = target;
+                    $("#wrlst_grid").jqGrid('editRow', grids.SelectedRow.List);
+                    $("#wrlst_add").prop("disabled", true);
+                    $("#wrlst_edit").prop("disabled", true);
+                    $("#wrlst_delete").prop("disabled", true);
+                    $("#wrlst_save").removeAttr("disabled");
+                    $("#wrlst_cancel").removeAttr("disabled");
+                    break;
+                case 'wrlst_save':
+                    console.log("wrlst_save", grids.SelectedRow);
+                    this.disabled = 'true';
+                    grids.HasNewRow = false;
+                    grids.NewRowCount++;
+                    grids.dispatchWorkroom(grids.ActionMethod);
+                    $("#wrlst_save").prop("disabled", true);
+                    $("#wrlst_cancel").prop("disabled", true);
+                    $("#wrlst_add").removeAttr("disabled");
+                    $("#wrlst_edit").removeAttr("disabled");
+                    $("#wrlst_delete").removeAttr("disabled");
+                    grids.ActionMethod = "";
+                    break;
+                case 'wrlst_delete':
+                    if (grids.SelectedRow == 0) {
+                        alert("no row selected.");
+                        return;
+                    }
+                    grids.ActionMethod = target;
+                    grids.dispatchWorkroom(target);
+                    break;
+                case 'wrlst_cancel':
+                    grids.HasNewRow = false;
+                    $("#wrlst_grid").jqGrid('restoreRow', "newrow_" + grids.NewRowCount);
+                    $("#wrlst_grid").jqGrid('restoreRow', grids.SelectedRow.List);
+                    $("#wrlst_save").prop("disabled", true);
+                    $("#wrlst_cancel").prop("disabled", true);
+                    $("#wrlst_add").removeAttr("disabled");
+                    $("#wrlst_edit").removeAttr("disabled");
+                    $("#wrlst_delete").removeAttr("disabled");
+                    grids.ActionMethod = "";
+                    break;
+                case 'wr_add': 
+                    $("#dialog-add-workroom").dialog("open"); 
+                    break; 
+            }
+
+        });
+    });
+
+    var grids = {
+        LoadWorkrooms: function(grid_data) {
+            if (grid_data == null)
+                grid_data = {Id: 0, Name: 'NoDATA', Abreviation: 'ND', Type: 'NOTYPE'};
+            console.log(grid_data); 
+            $("#wrlst_grid").jqGrid({
+                datatype: "local",
+                data: grid_data,
+                colNames: ['Id', 'WorkRoom', 'Abbreviation', 'Type'],
+                colModel: [
+                    { name: 'Id', index: 'id', editable: false},
+                    { name: 'Name', index: 'Name', editable: true, search:true, stype: 'text'},
+                    { name: 'Abbreviation', index: 'Abbreviation', width: 70, editable: true},
+                    { name: 'Type', index: 'Type', editable: true, edittype: 'select', editoptions: {value: "STC:STC; SUPPLIER:SUPPLIER"}},
+                ],
+                pager: "#wrlst_pager",
+                caption: "Edit, Add, Del Workrooms",
+                multiselect: false,
+                loadonce: false,
+                gridview: true,
+                romNum: 15,
+                scroll: true,
+                width: "100%",
+                height: 315, 
+                onSelectRow: function(rowid) {
+                    var ID_cell = $("#" + rowid).find("td[aria-describedby='wrlst_grid_Id']").html();
+                    console.log(rowid);
+                    grids.SelectedDataId.List = new Number(ID_cell);
+                    grids.SelectedRow.List = rowid;
+                },
+                ondblClickRow: function(row, iCol, cellcontent, e) {
+                    var ID_cell = $("#" + row).find("td[aria-describedby='wrlst_grid_Id']").html();
+                    grid.SelectedDataId.List = new Number(ID_cell);
+                    grids.SelectedRow.List = row;
+		            if (grid.SelectedDataId > 0) {
+                        $("#wrlst_grid").jqGrid('editRow', row);
+                        $("#wrlst_save", "#cancel").attr("disabled", false);
+                    }
+                }
+            });
+        },
+        LoadWorkroomsDialog: function(WorkroomArray) { 
+            var html = []; 
+            console.log(WorkroomArray); 
+            if (!!WorkroomArray)
+            {
+                $("#Workroom-selection").empty(); 
+                for (var i=0;i<WorkroomArray.length;i++) {
+                    html.push('<option value="' + WorkroomArray[i].Id + '">' + WorkroomArray[i].Abbreviation +'</option>');
+                };
+                $("#Workroom-selection").html(html.join('')); 
+            }        
+        },
+        LoadManager: function (grid_data) {
+            if (grid_data == null)
+                grid_data = {id: 0, Name: 'NoDATA', Abreviation: 'ND', CID: "000000"};
+
+            $("#wr_grid").jqGrid({
+                datatype: "local",
+                data: grid_data,
+                colNames: ['id', 'Name', 'Abreviation', 'CID'],
+                colModel: [
+                    { name: 'id', index: 'id', editable: false },
+                    { name: 'Name', index: 'Name', editable: false},
+                    { name: 'Abreviation', index: 'Abreviation', editable:false},
+                    { name: 'CID', index: 'CID', hidden: true, editable:false}
+                ],
+                pager: "#wr_pager",
+                caption: "Activate Workrooms By Location",
+                multiselect: false,
+                loadonce: false,
+                rowNum: 20,
+                scroll: true,
+                width: "100%",
+                height: 400, 
+                subGrid: true,
+                subGridRowColapsed: function(subgrid_id, row_id) { 
+                    grids.SelectedDataId.Manager = 0; 
+                    grids.SelectedLocLabel.Manager = "none"; 
+                    $("#active-location-label").val(grids.SelectedLocLabel.Manager); 
+                    grids.SelectedRow.Manager = 0; 
+                },
+                subGridRowExpanded: function(subgrid_id, row_id) {
+                   
+                    var ID_cell = $("#wr_grid #" + row_id).find("td[aria-describedby='wr_grid_id']").html();
+                    var CID = $("#wr_grid #" + row_id).find("td[aria-describedby='wr_grid_CID']").html(); 
+                    var subgridquerystr = "LocationId=" + ID_cell + "&CIDv=" + CID;
+                    var subgrid_table_id, pager_id;
+
+                    grids.SelectedDataId.Manager = new Number(ID_cell); 
+                    grids.SelectedLocLabel.Manager = $("#wr_grid #" + row_id).find("td[aria-describedby='wr_grid_Name']").html(); 
+                    grids.SelectedRow.Manager = row_id; 
+                    
+                    if (grids.SelectedLocLabel.Manager && grids.SelectedLocLabel.Manager.length > 0) 
+                        $("#active-location-label").val(grids.SelectedLocLabel.Manager); 
+                    
+                    console.log("label", grids.SelectedLocLabel.Manager); 
+
+                    subgrid_table_id = subgrid_id + "_t";
+                    pager_id = "p_"+subgrid_table_id;
+                    jQuery("#"+subgrid_id).html("<table id='"+subgrid_table_id+"' class='scroll'></table><div id='"+subgrid_table_id+"_pager'></div>");
+                    jQuery("#" + subgrid_table_id).jqGrid({
+                        url: "/Manage/GetWorkroomsSubgrid?LocationId=" + ID_cell + "&RowNum=30&PageNum=1",
+                        editurl: '/Manage/EditWorkroom?' + subgridquerystr,
+                        datatype: 'json',
+                        mtype: 'POST', 
+                        ajaxGridOptions: { contentType: 'application/json; charset=utf-8' },
+                        serializeGridData: function (postData) {
+                            return JSON.stringify(postData);
+                        },
+                        jsonReader: {
+                            repeatitems: false,
+                            root: "rows", 
+                            total: "total", 
+                            page: "page"
+                        },
+                        colNames: ['ac', 'Id', 'WorkRoom', 'Abbreviation', 'Status'],
+                        colModel: [
+                            { name: 'edit', index: 'edit', hidden: false, width: 30, formatter: 'actions', formatoptions : { delbutton:false, 
+                                onSuccess: function() {  alert("success"); $("#" + subgrid_id).jqGrid('setGridParam', { datatype: 'json' }).trigger('reloadGrid');},
+                                actions: { editbutton: true, delbutton: false, keys: true}} },
+                            {name: "Id", index: "Id", hidden: true, editable: false,  key: true},
+                            {name: "Name", index: "Name", editable: false},
+                            {name: "Abbreviation", index: "Abbreviation", editable: false},
+                            {name: "Status", index: "Status", editable: true, edittype:'select', editoptions:{value:"false:false;true:true"}, width:45,align:"right"}
+                        ],
+                        height: '100%',
+                        pager: subgrid_table_id + '_pager', 
+                        rowNum: 30, 
+                        loadonce: true,
+                        gridview: true, 
+                        onPaging: function(pgButton) { 
+
+                        },
+                        afterSaveCell: function(rowid, cellname, value, iRow, iCol) { 
+                            console.log('edited', rowid); 
+                            grids.WR_Edited = true; 
+                        },
+                        aftersavefunc: function() { 
+                            console.log('aftersave'); 
+                        }
+                    });
+                    jQuery("#" + subgrid_table_id).jqGrid('inlineNav', '#' + pager_id + '_pager',{edit:false,add:false,del:false}); 
+                }
+            });
+        },
+        SelectedDataId: { List: 0, Manager: 0},
+        SelectedRow: { List: 0, Manager: 0},
+        SelectedLocLabel: {Manager: "NA"},
+        SelectedPage: {List: 1, Manager: 1},
+        NewRowCount: 0,
+        HasNewRow: false,
+        ActionMethod: "",
+        WR_SUBGRID_PG: 1, 
+        dispatchWorkroom: function(method_) {
+            var edit_arr = {
+                Name: "",
+                Abbreviation: "",
+                Type: "",
+            };
+
+            if (method_ == '')
+            {
+                alert("Workroom grid action method error.");
+                return;
+            }
+
+            $("#wrlst_grid .editable").each(function(index, value) {
+                console.log(index, value);
+                console.log($(this).val(), $(this).attr('name'));
+                var elem_id = $(this).attr('name');
+                if (elem_id == 'Name')
+                    edit_arr.Name = $(this).val();
+                if (elem_id == 'Abbreviation')
+                    edit_arr.Abbreviation = $(this).val();
+                if (elem_id == 'Type')
+                    edit_arr.Type = $(this).val(); 
+            });
+            console.log(edit_arr, $("#wrlst_grid .editable"));
+            $.ajax({
+                url: '/Manage/SaveWorkroom',
+                type: 'POST',
+                data: {method: method_, Name: edit_arr.Name, Abbreviation: edit_arr.Abbreviation, dataid: grids.SelectedDataId.List, Type: edit_arr.Type, nav: "qa"},
+                success: function(data, text, jax) {
+                    console.log("dispatch", data);
+                    console.log("selectedRow", grids.SelectedRow); 
+                    if (data.Result == true) {
+                        console.log(grids.ActionMethod);                       
+                        grids.refresh();
+                        grids.ActionMethod == "";
+                        $("#wrlst_grid").jqGrid('saveRow', grids.SelectedRow);
+                        if (!!grids.SelectedRow.List)
+                            $("#wrlst_grid").jqGrid('saveRow', grids.SelectedRow.List);
+                        document.getElementById('navigate').submit()
+                    } else {
+                        alert(data.ErrorMessage);
+                    }
+                },
+                error: function(data) {
+                    alert(data);
+                }
+            });
+        }, refresh: function() {
+            $.ajax({
+                url: '/Manage/RefreshWorkrooms',
+                type: 'POST',
+                success: function(grid_data) {
+                    console.log('grid_data', grid_data);
+
+                    if (grids.ActionMethod == "wrlst_delete") { 
+                        jQuery("#wrlst_grid").jqGrid('clearGridData', true);
+                        jQuery("#wrlst_grid").jqGrid('setGridParam', {data : grid_data, page: grids.SelectedPage}).trigger('reloadGrid');
+                    }
+                    
+                    grids.LoadWorkroomsDialog(grid_data); 
+                },
+                error: function(data) {
+                    alert(data);
+                }
+            });
+        },
+        ActivateWorkroom: function(WRId) { 
+            console.log(grids.SelectedDataId.Manager)
+            if (grids.SelectedDataId.Manager == 0) 
+            { 
+                alert("Select a Location by clicking a row dropdown."); 
+                return; 
+            }
+            $.ajax({
+                url: '/Manage/ActivateWorkroom', 
+                type: 'POST', 
+                data: {WorkroomId: WRId, LocationMasterId: grids.SelectedDataId.Manager},
+                success: function(data) { 
+                    var $label = $("#dialog-errorlabel"); 
+                    console.log(data); 
+                    if (!!data && !!data.Result) { 
+                        if (data.Result == true) 
+                            $label.text("Workroom activated.  Refresh Location rooms.");
+                        else { 
+                            $label.text("Workroom activation failed.");
+                        }
+                        return; 
+                    } 
+                    $label.text("dialog box handler error."); 
+                }
+            })
+        }
+    };
+</script>
+

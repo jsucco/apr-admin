@@ -1,0 +1,159 @@
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\roslyn\csc.exe
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\roslyn\System.Collections.Immutable.dll
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\roslyn\System.Reflection.Metadata.dll
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\roslyn\vbc.exe
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\roslyn\VBCSCompiler.exe
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\roslyn\VBCSCompiler.exe.config
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\ApplicationInsights.config
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\menu.Tests.dll.config
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\menu.Tests.dll
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\menu.Tests.pdb
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\menu.dll
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\Microsoft.Web.Infrastructure.dll
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\Newtonsoft.Json.dll
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\System.Web.Helpers.dll
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\System.Web.Mvc.dll
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\System.Web.Razor.dll
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\System.Web.WebPages.Deployment.dll
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\System.Web.WebPages.dll
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\System.Web.WebPages.Razor.dll
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\System.Web.Optimization.dll
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\System.Web.Http.dll
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\Microsoft.AspNet.Identity.Core.dll
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\EntityFramework.dll
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\System.Web.Http.Cors.dll
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\System.Web.Http.WebHost.dll
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\Elmah.dll
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\System.Net.Http.Formatting.dll
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\System.Web.Cors.dll
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\menu.pdb
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\Newtonsoft.Json.xml
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\System.Web.Helpers.xml
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\System.Web.Mvc.xml
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\System.Web.Razor.xml
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\System.Web.WebPages.xml
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\System.Web.WebPages.Deployment.xml
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\System.Web.WebPages.Razor.xml
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\System.Web.Optimization.xml
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\System.Web.Http.xml
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\Microsoft.AspNet.Identity.Core.xml
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\EntityFramework.xml
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\System.Web.Http.Cors.xml
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\System.Web.Http.WebHost.xml
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\System.Net.Http.Formatting.xml
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\obj\Release\menu.Tests.csprojResolveAssemblyReference.cache
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\obj\Release\menu.Tests.dll
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\obj\Release\menu.Tests.pdb
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\ApplicationInsights.config
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\roslyn\csc.exe
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\roslyn\System.Collections.Immutable.dll
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\roslyn\System.Reflection.Metadata.dll
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\roslyn\vbc.exe
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\roslyn\VBCSCompiler.exe
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\roslyn\VBCSCompiler.exe.config
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\menu.Tests.dll.config
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\menu.Tests.dll
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\menu.Tests.pdb
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\menu.dll
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\Microsoft.Web.Infrastructure.dll
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\Newtonsoft.Json.dll
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\System.Web.Helpers.dll
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\System.Web.Mvc.dll
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\System.Web.Razor.dll
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\System.Web.WebPages.Deployment.dll
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\System.Web.WebPages.dll
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\System.Web.WebPages.Razor.dll
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\System.Web.Optimization.dll
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\System.Web.Http.dll
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\Microsoft.AspNet.Identity.Core.dll
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\EntityFramework.dll
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\System.Web.Http.Cors.dll
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\System.Web.Http.WebHost.dll
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\Elmah.dll
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\System.Net.Http.Formatting.dll
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\System.Web.Cors.dll
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\menu.pdb
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\Newtonsoft.Json.xml
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\System.Web.Helpers.xml
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\System.Web.Mvc.xml
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\System.Web.Razor.xml
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\System.Web.WebPages.xml
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\System.Web.WebPages.Deployment.xml
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\System.Web.WebPages.Razor.xml
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\System.Web.Optimization.xml
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\System.Web.Http.xml
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\Microsoft.AspNet.Identity.Core.xml
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\EntityFramework.xml
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\System.Web.Http.Cors.xml
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\System.Web.Http.WebHost.xml
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\bin\Release\System.Net.Http.Formatting.xml
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\obj\Release\menu.Tests.csprojResolveAssemblyReference.cache
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\obj\Release\menu.Tests.dll
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu.Tests\obj\Release\menu.Tests.pdb
+C:\GitRepos\test\menu.Tests\bin\Release\roslyn\csc.exe
+C:\GitRepos\test\menu.Tests\bin\Release\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\GitRepos\test\menu.Tests\bin\Release\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\GitRepos\test\menu.Tests\bin\Release\roslyn\Microsoft.CodeAnalysis.dll
+C:\GitRepos\test\menu.Tests\bin\Release\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\GitRepos\test\menu.Tests\bin\Release\roslyn\Microsoft.CSharp.Core.targets
+C:\GitRepos\test\menu.Tests\bin\Release\roslyn\Microsoft.VisualBasic.Core.targets
+C:\GitRepos\test\menu.Tests\bin\Release\roslyn\System.Collections.Immutable.dll
+C:\GitRepos\test\menu.Tests\bin\Release\roslyn\System.Reflection.Metadata.dll
+C:\GitRepos\test\menu.Tests\bin\Release\roslyn\vbc.exe
+C:\GitRepos\test\menu.Tests\bin\Release\roslyn\VBCSCompiler.exe
+C:\GitRepos\test\menu.Tests\bin\Release\roslyn\VBCSCompiler.exe.config
+C:\GitRepos\test\menu.Tests\bin\Release\ApplicationInsights.config
+C:\GitRepos\test\menu.Tests\bin\Release\menu.Tests.dll.config
+C:\GitRepos\test\menu.Tests\bin\Release\menu.Tests.dll
+C:\GitRepos\test\menu.Tests\bin\Release\menu.Tests.pdb
+C:\GitRepos\test\menu.Tests\bin\Release\menu.dll
+C:\GitRepos\test\menu.Tests\bin\Release\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\GitRepos\test\menu.Tests\bin\Release\Microsoft.Web.Infrastructure.dll
+C:\GitRepos\test\menu.Tests\bin\Release\Newtonsoft.Json.dll
+C:\GitRepos\test\menu.Tests\bin\Release\System.Web.Helpers.dll
+C:\GitRepos\test\menu.Tests\bin\Release\System.Web.Mvc.dll
+C:\GitRepos\test\menu.Tests\bin\Release\System.Web.Razor.dll
+C:\GitRepos\test\menu.Tests\bin\Release\System.Web.WebPages.Deployment.dll
+C:\GitRepos\test\menu.Tests\bin\Release\System.Web.WebPages.dll
+C:\GitRepos\test\menu.Tests\bin\Release\System.Web.WebPages.Razor.dll
+C:\GitRepos\test\menu.Tests\bin\Release\System.Web.Optimization.dll
+C:\GitRepos\test\menu.Tests\bin\Release\System.Web.Http.dll
+C:\GitRepos\test\menu.Tests\bin\Release\Microsoft.AspNet.Identity.Core.dll
+C:\GitRepos\test\menu.Tests\bin\Release\EntityFramework.dll
+C:\GitRepos\test\menu.Tests\bin\Release\System.Web.Http.Cors.dll
+C:\GitRepos\test\menu.Tests\bin\Release\System.Web.Http.WebHost.dll
+C:\GitRepos\test\menu.Tests\bin\Release\Elmah.dll
+C:\GitRepos\test\menu.Tests\bin\Release\System.Net.Http.Formatting.dll
+C:\GitRepos\test\menu.Tests\bin\Release\System.Web.Cors.dll
+C:\GitRepos\test\menu.Tests\bin\Release\menu.pdb
+C:\GitRepos\test\menu.Tests\bin\Release\Newtonsoft.Json.xml
+C:\GitRepos\test\menu.Tests\bin\Release\System.Web.Helpers.xml
+C:\GitRepos\test\menu.Tests\bin\Release\System.Web.Mvc.xml
+C:\GitRepos\test\menu.Tests\bin\Release\System.Web.Razor.xml
+C:\GitRepos\test\menu.Tests\bin\Release\System.Web.WebPages.xml
+C:\GitRepos\test\menu.Tests\bin\Release\System.Web.WebPages.Deployment.xml
+C:\GitRepos\test\menu.Tests\bin\Release\System.Web.WebPages.Razor.xml
+C:\GitRepos\test\menu.Tests\bin\Release\System.Web.Optimization.xml
+C:\GitRepos\test\menu.Tests\bin\Release\System.Web.Http.xml
+C:\GitRepos\test\menu.Tests\bin\Release\Microsoft.AspNet.Identity.Core.xml
+C:\GitRepos\test\menu.Tests\bin\Release\EntityFramework.xml
+C:\GitRepos\test\menu.Tests\bin\Release\System.Web.Http.Cors.xml
+C:\GitRepos\test\menu.Tests\bin\Release\System.Web.Http.WebHost.xml
+C:\GitRepos\test\menu.Tests\bin\Release\System.Net.Http.Formatting.xml
+C:\GitRepos\test\menu.Tests\obj\Release\menu.Tests.csprojResolveAssemblyReference.cache
+C:\GitRepos\test\menu.Tests\obj\Release\menu.Tests.dll
+C:\GitRepos\test\menu.Tests\obj\Release\menu.Tests.pdb

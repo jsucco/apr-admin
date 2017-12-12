@@ -1,0 +1,216 @@
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\roslyn\csc.exe
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\roslyn\vbc.exe
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\roslyn\VBCSCompiler.exe
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\ApplicationInsights.config
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\menu.dll.config
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\menu.dll
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\menu.pdb
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\Antlr3.Runtime.dll
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\Elmah.dll
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\Elmah.Mvc.dll
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\EntityFramework.dll
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\EntityFramework.SqlServer.dll
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\Microsoft.AI.Web.dll
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\Microsoft.ApplicationInsights.dll
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\Newtonsoft.Json.dll
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\System.Web.Helpers.dll
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\System.Web.Mvc.dll
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\System.Web.Optimization.dll
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\System.Web.Razor.dll
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\System.Web.WebPages.Deployment.dll
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\System.Web.WebPages.dll
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\System.Web.WebPages.Razor.dll
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\WebGrease.dll
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\Microsoft.AI.Web.xml
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\Microsoft.ApplicationInsights.xml
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\System.Web.Helpers.xml
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\System.Web.Mvc.xml
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\System.Web.Optimization.xml
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\System.Web.Razor.xml
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\System.Web.WebPages.xml
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\System.Web.WebPages.Deployment.xml
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\System.Web.WebPages.Razor.xml
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\Antlr3.Runtime.pdb
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\Newtonsoft.Json.xml
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\EntityFramework.xml
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\EntityFramework.SqlServer.xml
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu\obj\Release\menu.csprojResolveAssemblyReference.cache
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu\obj\Release\menu.dll
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu\obj\Release\menu.pdb
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\System.Net.Http.Formatting.dll
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\System.Web.Cors.dll
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\System.Web.Http.Cors.dll
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\System.Web.Http.dll
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\System.Web.Http.WebHost.dll
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\System.Net.Http.Formatting.xml
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\System.Web.Http.xml
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\System.Web.Http.Cors.xml
+C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\System.Web.Http.WebHost.xml
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\ApplicationInsights.config
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\roslyn\csc.exe
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\roslyn\vbc.exe
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\roslyn\VBCSCompiler.exe
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\menu.dll.config
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\menu.dll
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\menu.pdb
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\Antlr3.Runtime.dll
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\Elmah.dll
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\Elmah.Mvc.dll
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\EntityFramework.dll
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\EntityFramework.SqlServer.dll
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\Microsoft.AI.Web.dll
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\Microsoft.ApplicationInsights.dll
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\Newtonsoft.Json.dll
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\System.Net.Http.Formatting.dll
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\System.Web.Cors.dll
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\System.Web.Helpers.dll
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\System.Web.Http.Cors.dll
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\System.Web.Http.dll
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\System.Web.Http.WebHost.dll
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\System.Web.Mvc.dll
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\System.Web.Optimization.dll
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\System.Web.Razor.dll
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\System.Web.WebPages.Deployment.dll
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\System.Web.WebPages.dll
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\System.Web.WebPages.Razor.dll
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\WebGrease.dll
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\Microsoft.AI.Web.xml
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\Microsoft.ApplicationInsights.xml
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\System.Net.Http.Formatting.xml
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\System.Web.Http.xml
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\System.Web.Http.Cors.xml
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\System.Web.Http.WebHost.xml
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\System.Web.Helpers.xml
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\System.Web.Mvc.xml
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\System.Web.Optimization.xml
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\System.Web.Razor.xml
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\System.Web.WebPages.xml
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\System.Web.WebPages.Deployment.xml
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\System.Web.WebPages.Razor.xml
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\Antlr3.Runtime.pdb
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\Newtonsoft.Json.xml
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\EntityFramework.xml
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\EntityFramework.SqlServer.xml
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu\obj\Release\menu.dll
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu\obj\Release\menu.pdb
+C:\Users\aprremote\Dropbox (Standard Textile)\APR_Publish\menu\menu\obj\Release\menu.csprojResolveAssemblyReference.cache
+C:\GitRepos\test\menu\bin\roslyn\csc.exe
+C:\GitRepos\test\menu\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\GitRepos\test\menu\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\GitRepos\test\menu\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\GitRepos\test\menu\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\GitRepos\test\menu\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\GitRepos\test\menu\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\GitRepos\test\menu\bin\roslyn\System.Collections.Immutable.dll
+C:\GitRepos\test\menu\bin\roslyn\System.Reflection.Metadata.dll
+C:\GitRepos\test\menu\bin\roslyn\vbc.exe
+C:\GitRepos\test\menu\bin\roslyn\VBCSCompiler.exe
+C:\GitRepos\test\menu\bin\roslyn\VBCSCompiler.exe.config
+C:\GitRepos\test\menu\bin\ApplicationInsights.config
+C:\GitRepos\test\menu\bin\menu.dll.config
+C:\GitRepos\test\menu\bin\menu.dll
+C:\GitRepos\test\menu\bin\menu.pdb
+C:\GitRepos\test\menu\bin\Antlr3.Runtime.dll
+C:\GitRepos\test\menu\bin\Elmah.dll
+C:\GitRepos\test\menu\bin\Elmah.Mvc.dll
+C:\GitRepos\test\menu\bin\EntityFramework.dll
+C:\GitRepos\test\menu\bin\EntityFramework.SqlServer.dll
+C:\GitRepos\test\menu\bin\Microsoft.AI.Agent.Intercept.dll
+C:\GitRepos\test\menu\bin\Microsoft.AI.DependencyCollector.dll
+C:\GitRepos\test\menu\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\GitRepos\test\menu\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\GitRepos\test\menu\bin\Microsoft.AI.Web.dll
+C:\GitRepos\test\menu\bin\Microsoft.AI.WindowsServer.dll
+C:\GitRepos\test\menu\bin\Microsoft.ApplicationInsights.dll
+C:\GitRepos\test\menu\bin\Microsoft.AspNet.Identity.Core.dll
+C:\GitRepos\test\menu\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\GitRepos\test\menu\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\GitRepos\test\menu\bin\Microsoft.Web.Infrastructure.dll
+C:\GitRepos\test\menu\bin\Newtonsoft.Json.dll
+C:\GitRepos\test\menu\bin\System.Net.Http.Formatting.dll
+C:\GitRepos\test\menu\bin\System.Web.Cors.dll
+C:\GitRepos\test\menu\bin\System.Web.Helpers.dll
+C:\GitRepos\test\menu\bin\System.Web.Http.Cors.dll
+C:\GitRepos\test\menu\bin\System.Web.Http.dll
+C:\GitRepos\test\menu\bin\System.Web.Http.WebHost.dll
+C:\GitRepos\test\menu\bin\System.Web.Mvc.dll
+C:\GitRepos\test\menu\bin\System.Web.Optimization.dll
+C:\GitRepos\test\menu\bin\System.Web.Razor.dll
+C:\GitRepos\test\menu\bin\System.Web.WebPages.Deployment.dll
+C:\GitRepos\test\menu\bin\System.Web.WebPages.dll
+C:\GitRepos\test\menu\bin\System.Web.WebPages.Razor.dll
+C:\GitRepos\test\menu\bin\WebGrease.dll
+C:\GitRepos\test\menu\bin\Microsoft.AI.DependencyCollector.xml
+C:\GitRepos\test\menu\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\GitRepos\test\menu\bin\Microsoft.AI.Web.xml
+C:\GitRepos\test\menu\bin\Microsoft.AI.WindowsServer.xml
+C:\GitRepos\test\menu\bin\Microsoft.ApplicationInsights.xml
+C:\GitRepos\test\menu\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\GitRepos\test\menu\bin\System.Net.Http.Formatting.xml
+C:\GitRepos\test\menu\bin\System.Web.Http.xml
+C:\GitRepos\test\menu\bin\System.Web.Http.Cors.xml
+C:\GitRepos\test\menu\bin\System.Web.Http.WebHost.xml
+C:\GitRepos\test\menu\bin\System.Web.Helpers.xml
+C:\GitRepos\test\menu\bin\System.Web.Mvc.xml
+C:\GitRepos\test\menu\bin\System.Web.Optimization.xml
+C:\GitRepos\test\menu\bin\System.Web.Razor.xml
+C:\GitRepos\test\menu\bin\System.Web.WebPages.xml
+C:\GitRepos\test\menu\bin\System.Web.WebPages.Deployment.xml
+C:\GitRepos\test\menu\bin\System.Web.WebPages.Razor.xml
+C:\GitRepos\test\menu\bin\Antlr3.Runtime.pdb
+C:\GitRepos\test\menu\bin\Newtonsoft.Json.xml
+C:\GitRepos\test\menu\bin\EntityFramework.xml
+C:\GitRepos\test\menu\bin\EntityFramework.SqlServer.xml
+C:\GitRepos\test\menu\bin\Microsoft.AspNet.Identity.Core.xml
+C:\GitRepos\test\menu\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\GitRepos\test\menu\obj\Release\menu.csprojResolveAssemblyReference.cache
+C:\GitRepos\test\menu\obj\Release\menu.dll
+C:\GitRepos\test\menu\obj\Release\menu.pdb

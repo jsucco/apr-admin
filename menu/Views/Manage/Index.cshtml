@@ -1,0 +1,145 @@
+﻿@model menu.Models.ManageIndexViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link type="text/css" href="~/Content/Manage.css" rel="stylesheet" />
+<link href="http://cdn.wijmo.com/themes/arctic/jquery-wijmo.css" rel="stylesheet" type="text/css" />
+<link type="text/css" href="~/Content/ui.jqgrid.css" rel="stylesheet" />
+<script type="text/javascript" src="~/Scripts/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="~/Scripts/jquery-ui.min.js"></script>
+<script type="text/javascript" src="~/Scripts/grid.locale-en.js"></script>
+<script type="text/javascript" src="~/Scripts/jquery.jqGrid.min.js"></script>
+<div class="PageLayout-Panels">
+    <div id="manage-nav-container" class="full-width">
+         <div class="manager-nav-section">
+             <form id="navigate" method="post" action="~/Manage/Index">
+                 <input type="hidden" id="selectednav" name="navitem" value="qa"/>
+                 <ul class="manager-nav" style="padding-left:0px; width:100%;">
+                     <li class="list-row" name="nav-row-back" id="nav-row-back">
+                         <div class="manage-nav-item-chevron">
+                             <a class="back-arrow"></a>
+                         </div>
+                     </li>
+                     <li id="nav-row-qa" class="list-row" name="qa">
+                         <a id="nav-item-qa" class="manage-nav-item">
+                             <div class="icon-img">
+                                 @if (Model.QASelected == false)
+                                 {
+                                     <img class="ms-Icon" style="width:40px !important;" src="~/Content/Images/icons8-Good Quality-50-white.png" />
+                                 }
+                                 else
+                                 {
+                                     <img class="ms-Icon" style="width:40px !important;" src="~/Content/Images/icons8-Good Quality-50-dark.png" />
+                                 }
+                             </div>
+                             <div class="icon-text"><label class="list-label">Quality Assurance</label></div>
+                         </a>
+                     </li>
+                     <li id="nav-row-flagboards" class="list-row" name="flagboards">
+                         <a id="nav-item-flagboards" class="manage-nav-item">
+                             <div class="icon-img">
+                                 @if (Model.FlagboardsSelected == false)
+                                 {
+                                     <img class="ms-Icon" src="~/Content/Images/Maintenance Filled-50.png" />
+                                 }
+                                 else
+                                 {
+                                     <img class="ms-Icon" src="~/Content/Images/Maintenance Filled-50-dark.png" />
+                                 }
+                             </div>
+                             <div class="icon-text"><label class="list-label">Flagboards</label></div>
+                         </a>
+                     </li>
+                     <li id="nav-row-alerts" class="list-row" name="alerts">
+                         <a id="nav-item-alerts" class="manage-nav-item">
+                             <div class="icon-img">
+                                 @if (Model.AlertsSelected == false)
+                                 {
+                                    <img style="width:35px !important;" class="ms-Icon" src="~/Content/Images/icons8-attention-white.png" />
+                                 }
+                                 else
+                                 {
+                                    <img style="width:35px !important;" class="ms-Icon" src="~/Content/Images/icons8-attention.png" />
+                                 }
+                             </div>
+                             <div class="icon-text"><label class="list-label">Alerts</label></div>
+                         </a>
+                     </li>
+                     <li id="nav-row-utility" class="list-row" name="utility">
+                         <a id="nav-item-utility" class="manage-nav-item">
+                             <div class="icon-img">
+                                 @if (Model.UtilitySelected == false)
+                                 {
+                                    <img class="ms-Icon" src="~/Content/Images/icons8-new-resume-template-50.png"/>
+                                 }
+                                 else
+                                 {
+                                    <img class="ms-Icon" src="~/Content/Images/icons8-new-resume-template-50_dark.png"/>
+                                 }
+                             </div>
+                             <div class="icon-text"><label class="list-label">Utility</label></div>
+                         </a>
+                     </li>
+                     <li id="nav-row-activity" style="display:none;" class="list-row" name="activity">
+                         <a id="nav-item-activity" class="manage-nav-item">
+                             <div class="icon-img">
+                                @if (Model.ActivitySelected == false)
+                                {
+                                    <img class="ms-Icon" src="~/Content/Images/Statistics-64.png" />
+                                } else
+                                {
+                                    <img class="ms-Icon" src="~/Content/Images/Statistics-64-dark.png" />
+                                }
+                             </div>
+                             <div class="icon-text"><label class="list-label">Activity</label></div>
+                         </a>
+                     </li>
+                 </ul>
+             </form>
+         </div>
+    </div> 
+    <div id="manage-index-maincontent" style="position:relative; max-width: 1450px; min-width: 1000px;" class="content-left">
+        @if (Model.AlertsSelected == true)
+        {
+            Html.RenderAction("ALPartial");
+        }
+        else if (Model.UtilitySelected == true)
+        {
+            Html.RenderAction("UtilityPartial");
+        }
+        else if (Model.FlagboardsSelected == true)
+        {  
+            Html.RenderAction("FlagboardsPartial");
+        } else if (Model.ActivitySelected == true)
+        {
+            @Html.Partial("_ActivityPartial")
+        } else if (Model.QASelected == true)
+        {
+            Html.RenderAction("QAPartial");
+        }
+    </div>
+    <style>
+        .nav-row-selected {
+                background-color: #d9d6d6;
+        }
+    </style>
+    <script type="text/javascript">
+        $(function () {
+            var navSelected = @Html.Raw(Json.Encode(Model.NavRowSel));    
+
+            console.log(navSelected);
+
+            $("#nav-row-" + navSelected).addClass('nav-row-selected'); 
+            
+            $(".list-row").on('click', function (e) {
+                var $name = $(this).attr('name'); 
+            $("#selectednav").val($name);
+            $('#navigate').attr("action", "/Manage/Index?nav=" + $name); 
+            window.location.href = "/Manage/Index/" + $name; 
+            //document.getElementById('navigate').submit();
+            });
+       });
+    </script>
+</div>
+
