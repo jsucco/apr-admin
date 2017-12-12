@@ -64,7 +64,7 @@
                 case 'fb_add':
                     controls.HasNewRow = true;
                     $("#fb_grid").jqGrid('addRow', {rowID: "newrow_" + controls.NewRowCount});
-                    $("#newrow_0_Loc_Description").val("Flagboard " + (controls.MaxMFBId + 1)); 
+                    $("#newrow_" + controls.NewRowCount + "_Loc_Description").val("Flagboard " + (controls.MaxMFBId + 1)); 
 
                     controls.ActionMethod = target;
                     this.disabled = 'true'
