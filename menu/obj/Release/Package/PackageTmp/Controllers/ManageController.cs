@@ -10,7 +10,7 @@ namespace menu.Controllers
     public class ManageController : Controller
     {
         private JavaScriptSerializer jser = new JavaScriptSerializer();
-        private string CID;
+        private string CID = "";
         
         [OutputCache(Duration = 604800, Location = System.Web.UI.OutputCacheLocation.Server, VaryByParam ="nav")]
         public ActionResult Index()
@@ -20,7 +20,13 @@ namespace menu.Controllers
 
             var nav = (string)this.RouteData.Values["nav"]; 
 
-            Models.ManageIndexViewModel model = getIVM(nav); 
+            if (nav == "nav-row-back")
+                return Redirect("http://apr.standardtextile.com");
+
+            Models.ManageIndexViewModel model = getIVM(nav);
+
+            if (CID != null && CID.Length == 6)
+                model.CID = CID;
 
             return View(model);
         }
@@ -79,6 +85,18 @@ namespace menu.Controllers
             return PartialView("_UtilityPartial", m); 
         }
 
+        public PartialViewResult AdminUserPartial()
+        {
+            Helpers.AdminService service = new Helpers.AdminService();
+
+            AdminUserViewModel m = new AdminUserViewModel()
+            {
+                amdata = service.GetAdminGrid()
+            };
+
+            return PartialView("_AccountsPartial", m); 
+        }
+
         [HttpPost]
         public JsonResult RefreshWorkrooms()
         {
@@ -98,6 +116,14 @@ namespace menu.Controllers
         {
             Helpers.AdminService service = new Helpers.AdminService();
             return Json(service.GetAlertEmails("INS")); 
+        }
+
+        [HttpPost]
+        public JsonResult RefreshAM()
+        {
+            Helpers.AdminService service = new Helpers.AdminService();
+
+            return Json(service.GetAdminGrid()); 
         }
 
         [HttpPost]
@@ -281,6 +307,67 @@ namespace menu.Controllers
         }
 
         [HttpPost]
+        public JsonResult SaveAM(string method, int id, string address, bool status, string nav)
+        {
+            var rObject = new MethodResponse()
+            {
+                Result = true,
+                ErrorMessage = "",
+                Content = new Models.WorkroomsUserObject[] { }
+            };
+
+            Helpers.AdminService service = new Helpers.AdminService();
+
+            try
+            {
+                if (id == 0 && method != "am_add")
+                    throw new Exception("email id not recieved");
+
+                if (address.Length == 0 && method != "am_delete")
+                    throw new Exception("email address not recieved");
+
+                var amO = new AdminsGridView()
+                {
+                    id = id,
+                    Address = address,
+                    Status = status,
+                };
+
+                switch(method)
+                {
+                    case "am_add":
+                        rObject.Result = service.AddAdmin(amO);
+                        break;
+                    case "am_edit":
+                        rObject.Result = service.EditAdmin(amO);
+                        break;
+                    case "am_delete":
+                        rObject.Result = service.DeleteAdmin(amO.id);
+                        break;
+                    default:
+                        rObject.ErrorMessage = "control handler error";
+                        rObject.Result = false;
+                        break; 
+                }
+
+            } catch (Exception ex)
+            {
+                rObject.Result = false;
+                rObject.ErrorMessage = ex.Message; 
+            }
+
+            if (rObject.Result == true)
+            {
+                removeCacheHTML(nav);
+                service.ClearAdminEmailCache(); 
+            }           
+            else
+                rObject.ErrorMessage = service.ErrorMessage;
+
+            return Json(rObject); 
+        }
+
+        [HttpPost]
         public ActionResult GetWorkroomsSubgrid()
         {
             int locid, RowNum, PageNum = 0;
@@ -360,12 +447,13 @@ namespace menu.Controllers
             if (navitem == "nav-row-back")
                 return RedirectToMenu();
 
-            model = getIVM(navitem);
+            model = getIVM(navitem); 
 
             setNavParam(navitem);
 
-            if (!ValidateAdminPriv())
-                return RedirectToMenu();
+            SetCID();
+
+            model.CID = CID;
 
             return View(model); 
         }
@@ -422,8 +510,8 @@ namespace menu.Controllers
                     m.FlagboardsSelected = true;
                     setNavParam(navitem);
                     break;
-                case "activity":
-                    m.ActivitySelected = true;
+                case "adminuser":
+                    m.AdminUserSelected = true;
                     setNavParam(navitem);
                     break;
                 case "qa":
@@ -466,61 +554,15 @@ namespace menu.Controllers
             return m; 
         }
 
-        private bool ValidateAdminPriv()
-        {
-            string debugMode = ConfigurationManager.AppSettings["debugMode"];
-
-            if (debugMode == "true")
-                return true; 
-
-            var authcookie = HttpContext.Request.Cookies[FormsAuthentication.FormsCookieName];
-
-            if (authcookie == null)
-            {
-                RedirectToMenu();
-            }
-
-            FormsAuthenticationTicket ticket = FormsAuthentication.Decrypt(authcookie.Value);
-
-            if (ticket.Name.Length == 0)
-                RedirectToMenu();
-
-            Helpers.AdminService service = new Helpers.AdminService();
-
-            Models.EF.EmailMaster[] admins = service.GetAdminEmails();
-            var rawUserName = service.ParseRawUserName(ticket.Name);
-
-            foreach (Models.EF.EmailMaster item in admins)
-            {
-                var rawAdminUser = item.Address.Split(new char[] { '@' });
-
-                if (rawAdminUser.Length > 1)
-                {
-                    if (rawUserName == rawAdminUser[0])
-                        return true; 
-                }                 
-            }
-            return false; 
-        }
-
-        private RedirectResult RedirectToMenu()
-        {
-            var menuUrl = ConfigurationManager.AppSettings["APRMENUURL"]; 
-            if (menuUrl == null || menuUrl.Length == 0)
-            {
-                throw new System.Exception("AppSetting APRMENUURL cannot be null or length of zero"); 
-            }
-            CID = (Session["CID"] != null) ? Session["CID"].ToString() : CID; 
-            return Redirect(menuUrl + "?UC=" + CID); 
-        }
-
         private void SetCID()
         {
-            if (HttpContext.Request.QueryString["CID"] != null)
+            if (HttpContext.Request.QueryString["cid"] != null)
             {
-                CID = HttpContext.Request.QueryString["CID"];
-                Session["CID"] = CID;
+                CID = HttpContext.Request.QueryString["cid"];
             }
+
+            if (CID != null && CID.Length == 6)
+                Session["CID"] = CID;
         }
 
         private void setNavParam(string nav)
@@ -552,6 +594,19 @@ namespace menu.Controllers
                 Elmah.ErrorSignal.FromCurrentContext().Raise(ex); 
             }
 
+        }
+
+        private RedirectResult RedirectToMenu()
+        {
+            var menuUrl = ConfigurationManager.AppSettings["APRMENUURL"];
+
+            if (menuUrl == null || menuUrl.Length == 0)
+            {
+                throw new System.Exception("AppSetting APRMENUURL cannot be null or length of zero");
+            }
+            var CID = (Session["CID"] != null) ? Session["CID"].ToString() : "";
+
+            return Redirect(menuUrl + "?UC=" + CID);
         }
         #endregion
 

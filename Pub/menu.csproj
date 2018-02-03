@@ -196,7 +196,6 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CurrentJobsController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\WorkRoomsController.cs" />
     <Compile Include="Global.asax.cs">
@@ -226,6 +225,7 @@
     <Compile Include="Models\EF\ButtonLibrary.cs" />
     <Compile Include="Models\EF\InspectionContext.cs" />
     <Compile Include="Models\EF\WorkRoom.cs" />
+    <Compile Include="Models\ManageDAOModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MenuModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -289,12 +289,12 @@
     </Content>
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\Index2.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Service References\Application Insights\ConnectedService.json" />
@@ -302,15 +302,12 @@
     <Content Include="Views\Manage\_AccountsPartial.cshtml" />
     <Content Include="Views\Manage\_UtilityPartial.cshtml" />
     <Content Include="Views\Manage\_FlagboardsPartial.cshtml" />
-    <Content Include="Views\Home\error.cshtml" />
     <Content Include="Views\Manage\_ActivityPartial.cshtml" />
     <Content Include="Views\Manage\_QAPartial.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Manage\_AlertsPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Account\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

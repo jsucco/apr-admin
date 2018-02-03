@@ -64,6 +64,8 @@
                 case 'fb_add':
                     controls.HasNewRow = true;
                     $("#fb_grid").jqGrid('addRow', {rowID: "newrow_" + controls.NewRowCount});
+                    $("#newrow_" + controls.NewRowCount + "_Loc_Description").val("Flagboard " + (controls.MaxMFBId + 1)); 
+
                     controls.ActionMethod = target;
                     this.disabled = 'true'
                     $("#fb_edit").prop("disabled", true);
@@ -270,6 +272,8 @@
                 success: function(grid_data) {
                     console.log('grid_data', grid_data);
                     console.log('selected page', controls.SelectedPage.MFB);
+
+                    controls.setMaxMFBId(grid_data); 
                     
                     jQuery("#fb_grid").jqGrid('clearGridData', true);
                     jQuery("#fb_grid").jqGrid('setGridParam', {data : grid_data, page: controls.SelectedPage.MFB}).trigger('reloadGrid');
@@ -279,7 +283,14 @@
                     alert(data);
                 }
             });
-        }
+        },
+        setMaxMFBId: function(data) { 
+            if (data == null || data.length == 0) 
+                return; 
+            
+            controls.MaxMFBId = data[data.length -1].MFB_Id;
+        },
+        MaxMFBId: 0
     };
 
 

@@ -16,9 +16,9 @@
              <form id="navigate" method="post" action="~/Manage/Index">
                  <input type="hidden" id="selectednav" name="navitem" value="qa"/>
                  <ul class="manager-nav" style="padding-left:0px; width:100%;">
-                     <li class="list-row" name="nav-row-back" id="nav-row-back">
-                         <div class="manage-nav-item-chevron">
-                             <a class="back-arrow"></a>
+                     <li class="list-row menu-return" name="nav-row-back" id="nav-row-back" onclick="return false;">
+                         <div class="manage-nav-item-chevron menu-return" onclick="return false;">
+                             <a class="back-arrow menu-return" onclick="return false;"></a>
                          </div>
                      </li>
                      <li id="nav-row-qa" class="list-row" name="qa">
@@ -81,18 +81,18 @@
                              <div class="icon-text"><label class="list-label">Utility</label></div>
                          </a>
                      </li>
-                     <li id="nav-row-activity" style="display:none;" class="list-row" name="activity">
-                         <a id="nav-item-activity" class="manage-nav-item">
+                     <li id="nav-row-admin-user" class="list-row" name="adminuser">
+                         <a id="nav-item-admin-user" class="manage-nav-item">
                              <div class="icon-img">
-                                @if (Model.ActivitySelected == false)
+                                @if (Model.AdminUserSelected == false)
                                 {
-                                    <img class="ms-Icon" src="~/Content/Images/Statistics-64.png" />
+                                    <img class="ms-Icon" src="~/Content/Images/User Shield-64 (2).png" />
                                 } else
                                 {
-                                    <img class="ms-Icon" src="~/Content/Images/Statistics-64-dark.png" />
+                                    <img class="ms-Icon" src="~/Content/Images/User Shield-64-dark.png" />
                                 }
                              </div>
-                             <div class="icon-text"><label class="list-label">Activity</label></div>
+                             <div class="icon-text"><label class="list-label">Admin Users</label></div>
                          </a>
                      </li>
                  </ul>
@@ -111,9 +111,9 @@
         else if (Model.FlagboardsSelected == true)
         {  
             Html.RenderAction("FlagboardsPartial");
-        } else if (Model.ActivitySelected == true)
+        } else if (Model.AdminUserSelected == true)
         {
-            @Html.Partial("_ActivityPartial")
+            Html.RenderAction("AdminUserPartial");
         } else if (Model.QASelected == true)
         {
             Html.RenderAction("QAPartial");
@@ -126,20 +126,26 @@
     </style>
     <script type="text/javascript">
         $(function () {
-            var navSelected = @Html.Raw(Json.Encode(Model.NavRowSel));    
+            var navSelected = @Html.Raw(Json.Encode(Model.NavRowSel));
 
             console.log(navSelected);
 
-            $("#nav-row-" + navSelected).addClass('nav-row-selected'); 
-            
+            $(".menu-return").click(function(e) { 
+                e.preventDefault(); 
+                console.log("click"); 
+            });
+
+            $("#nav-row-" + navSelected).addClass('nav-row-selected');
+
             $(".list-row").on('click', function (e) {
-                var $name = $(this).attr('name'); 
+                var $name = $(this).attr('name');
             $("#selectednav").val($name);
-            $('#navigate').attr("action", "/Manage/Index?nav=" + $name); 
-            window.location.href = "/Manage/Index/" + $name; 
+            $('#navigate').attr("action", "/Manage/Index?nav=" + $name);
+            window.location.href = "/Manage/Index/" + $name;
             //document.getElementById('navigate').submit();
             });
-       });
+        });
+
     </script>
 </div>
 

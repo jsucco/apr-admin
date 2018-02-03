@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using menu.Models;
 using menu.Models.EF;
 using System.Data.SqlClient;
+using System.Web;
 
 namespace menu.Helpers
 {
@@ -24,13 +25,78 @@ namespace menu.Helpers
             EmailMaster[] admins = new EmailMaster[] { }; 
             try
             {
-                admins = (from e in MangContext.EmailMasters where e.ADMIN == true select e).ToArray(); 
+                admins = (from e in MangContext.EmailMasters
+                          where e.ADMIN == true
+                          select e).ToArray(); 
             } catch (Exception ex)
             {
                 ErrorFlag = true;
                 ErrorMessage = ex.Message; 
             }
             return admins; 
+        }
+
+        public AdminsGridView[] GetAdminGrid()
+        {
+            AdminsGridView[] grid_data = new AdminsGridView[] { }; 
+
+            try
+            {
+                grid_data = (from e in MangContext.EmailMasters
+                             select new AdminsGridView { id = e.id, Address = e.Address.Trim(), Status = e.ADMIN }).ToArray(); 
+            } catch (Exception ex)
+            {
+                ErrorFlag = true;
+                ErrorMessage = ex.Message; 
+            }
+            return grid_data; 
+        }
+
+        private string AdminCacheKey = "Admin-Email-Hash"; 
+
+        public HashSet<string> GetAdminHash()
+        {
+            try
+            {
+                var cached = HttpRuntime.Cache[AdminCacheKey];
+
+                if (cached != null)
+                    return (HashSet<string>)cached; 
+
+
+            } catch(Exception ex)
+            {
+                ErrorFlag = true;
+                ErrorMessage = ex.Message;
+            }
+
+            var dbEmails = GetAdminEmails();
+            HashSet<string> hs = new HashSet<string>(); 
+
+            if (dbEmails != null && dbEmails.Count() > 0)
+            {
+                foreach (var item in dbEmails)
+                {
+                    var rawAdminUser = item.Address.Split(new char[] { '@' });
+
+                    if (rawAdminUser.Length > 1)
+                    {
+                        hs.Add(rawAdminUser[0].ToUpper());
+                    }
+                }
+
+                if (hs.Count > 0)
+                    HttpRuntime.Cache.Insert(AdminCacheKey, 
+                        hs, null, DateTime.Now.AddDays(14), 
+                        System.Web.Caching.Cache.NoSlidingExpiration);
+            }
+
+            return hs;
+        }
+
+        public void ClearAdminEmailCache()
+        {
+            HttpRuntime.Cache.Remove(AdminCacheKey); 
         }
 
         public Models.AlertManager[] GetAlertEmails(string code)
@@ -57,6 +123,86 @@ namespace menu.Helpers
             return new Models.AlertManager[] { }; 
         }
 
+        public bool AddAdmin(AdminsGridView amO)
+        {
+            try
+            {
+                using (var context = MangContext)
+                {
+                    var exCnt = (from x in context.EmailMasters
+                                 where x.Address == amO.Address.Trim()
+                                 select x).Count();
+
+                    if (exCnt > 0)
+                        throw new Exception("address already exists");
+
+                    context.EmailMasters.Add(new EmailMaster { Address = amO.Address, ADMIN = amO.Status });
+
+                    if (context.SaveChanges() > 0)
+                        return true; 
+                }
+            } catch (Exception ex)
+            {
+                ErrorFlag = true;
+                ErrorMessage = ex.Message;
+            }
+
+            return false; 
+        }
+
+        public bool EditAdmin(AdminsGridView amO)
+        {
+            try
+            {
+                using (var context = MangContext)
+                {
+                    var sql = @"Update EmailMaster SET Address = @address, ADMIN = @status
+                                WHERE id = @id"; 
+
+                    var rows = context.Database.ExecuteSqlCommand
+                        (sql, 
+                        new SqlParameter("@address", amO.Address),
+                        new SqlParameter("@status", amO.Status), 
+                        new SqlParameter("@id", amO.id));
+
+                    if (rows > 0)
+                        return true; 
+                }
+            } catch (Exception ex)
+            {
+                ErrorFlag = true;
+                ErrorMessage = ex.Message; 
+            }
+
+            return false; 
+        }
+
+        public bool DeleteAdmin(int id)
+        {
+            try
+            {
+                var sql = @"Delete from EmailMaster
+                            where id = @id";
+
+                using (var context = MangContext)
+                {
+                    var rows = context.Database.ExecuteSqlCommand
+                        (sql,
+                        new SqlParameter("@id", id));
+
+                    if (rows > 0)
+                        return true; 
+                } 
+
+            } catch (Exception ex)
+            {
+                ErrorFlag = true;
+                ErrorMessage = ex.Message; 
+            }
+
+            return false; 
+        }
+
         public bool AddEmail(Models.AlertManager aO)
         {
             try
@@ -74,6 +220,15 @@ namespace menu.Helpers
                         throw new Exception("Incorrect format"); 
 
                     context.ActiveAlerts.Add(new ActiveAlert() { Code = "INS", CID = aO.CID, Name = "ACTIVE", Value = aO.Email });
+
+                    if (aO.INSCOMP == true)
+                        context.ActiveAlerts.Add(new ActiveAlert() { Code = "INS", CID = aO.CID, Name = "INSCOMP", Value = aO.Email });
+
+                    if (aO.AUTOCOMP == true)
+                        context.ActiveAlerts.Add(new ActiveAlert() { Code = "INS", CID = aO.CID, Name = "AUTOCOMP", Value = aO.Email });
+
+                    if (aO.INSCOMPEX == true)
+                        context.ActiveAlerts.Add(new ActiveAlert() { Code = "INS", CID = aO.CID, Name = "INSCOMPEX", Value = aO.Email });
 
                     if (context.SaveChanges() > 0)
                         return true; 
@@ -157,7 +312,7 @@ namespace menu.Helpers
                                  where x.Code == aO.Code && x.Value == aO.Email
                                  select x);
 
-                    if (arecs.Count() == 0)
+                    if (arecs == null)
                         throw new Exception("record does not exist");
 
                     context.ActiveAlerts.RemoveRange(arecs);

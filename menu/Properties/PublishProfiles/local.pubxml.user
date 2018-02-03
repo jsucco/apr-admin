@@ -6,7 +6,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_PublishTargetUrl>C:\Users\johns\Dropbox (Standard Textile)\APR_Publish\menu\Pub</_PublishTargetUrl>
+    <_PublishTargetUrl>C:\GitRepos\apr-admin\Pub</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="ApplicationInsights.config">
@@ -43,7 +43,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/02/2015 05:32:26</publishTime>
     </File>
     <File Include="bin/menu.dll">
-      <publishTime>12/11/2017 18:36:30</publishTime>
+      <publishTime>01/17/2018 09:37:50</publishTime>
     </File>
     <File Include="bin/Microsoft.AI.Agent.Intercept.dll">
       <publishTime>12/07/2015 19:04:38</publishTime>
@@ -256,7 +256,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/07/2017 10:21:10</publishTime>
     </File>
     <File Include="Controllers/ManageController.cs">
-      <publishTime>12/07/2017 10:21:47</publishTime>
+      <publishTime>01/08/2018 13:58:09</publishTime>
     </File>
     <File Include="Controllers/WorkRoomsController.cs">
       <publishTime>08/28/2017 09:40:25</publishTime>
@@ -280,10 +280,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/31/2016 15:07:51</publishTime>
     </File>
     <File Include="Global.asax.cs">
-      <publishTime>09/28/2017 15:46:00</publishTime>
+      <publishTime>01/17/2018 09:16:30</publishTime>
     </File>
     <File Include="Helpers/AdminService.cs">
-      <publishTime>11/14/2017 14:46:11</publishTime>
+      <publishTime>01/08/2018 15:23:35</publishTime>
     </File>
     <File Include="Helpers/Authenticate.cs">
       <publishTime>11/11/2016 16:16:05</publishTime>
@@ -304,10 +304,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/10/2016 16:43:23</publishTime>
     </File>
     <File Include="menu.csproj">
-      <publishTime>12/11/2017 18:36:18</publishTime>
+      <publishTime>01/04/2018 09:16:32</publishTime>
     </File>
     <File Include="menu.csproj.user">
-      <publishTime>12/11/2017 18:36:18</publishTime>
+      <publishTime>01/08/2018 10:37:20</publishTime>
     </File>
     <File Include="Models/CtxEF/Corporate.cs">
       <publishTime>10/24/2017 09:30:42</publishTime>
@@ -360,8 +360,11 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Models/EF/WorkroomActivator.cs">
       <publishTime>08/17/2017 16:03:44</publishTime>
     </File>
+    <File Include="Models/ManageDAOModels.cs">
+      <publishTime>01/04/2018 08:58:25</publishTime>
+    </File>
     <File Include="Models/ManageViewModels.cs">
-      <publishTime>12/04/2017 11:59:01</publishTime>
+      <publishTime>01/04/2018 09:07:59</publishTime>
     </File>
     <File Include="Models/MenuModels.cs">
       <publishTime>07/18/2017 15:52:05</publishTime>
@@ -385,7 +388,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/14/2017 15:26:31</publishTime>
     </File>
     <File Include="Properties/PublishProfiles/local.pubxml">
-      <publishTime>12/11/2017 18:36:15</publishTime>
+      <publishTime>12/13/2017 09:30:10</publishTime>
     </File>
     <File Include="Properties/PublishProfiles/WEBSVR01_menu.pubxml">
       <publishTime>09/22/2017 15:59:34</publishTime>
@@ -463,19 +466,19 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/18/2017 17:37:20</publishTime>
     </File>
     <File Include="Views/Manage/Index.cshtml">
-      <publishTime>11/20/2017 09:08:29</publishTime>
+      <publishTime>01/03/2018 13:01:47</publishTime>
     </File>
     <File Include="Views/Manage/_AccountsPartial.cshtml">
-      <publishTime>05/12/2017 14:44:59</publishTime>
+      <publishTime>01/04/2018 15:13:22</publishTime>
     </File>
     <File Include="Views/Manage/_ActivityPartial.cshtml">
       <publishTime>05/15/2017 17:07:51</publishTime>
     </File>
     <File Include="Views/Manage/_AlertsPartial.cshtml">
-      <publishTime>11/20/2017 09:08:58</publishTime>
+      <publishTime>12/13/2017 14:57:11</publishTime>
     </File>
     <File Include="Views/Manage/_FlagboardsPartial.cshtml">
-      <publishTime>11/20/2017 09:09:24</publishTime>
+      <publishTime>12/12/2017 11:06:58</publishTime>
     </File>
     <File Include="Views/Manage/_QAPartial.cshtml">
       <publishTime>12/11/2017 14:57:15</publishTime>
@@ -493,7 +496,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/15/2017 17:52:00</publishTime>
     </File>
     <File Include="Views/Shared/_LoginPartial.cshtml">
-      <publishTime>10/31/2016 15:42:26</publishTime>
+      <publishTime>01/17/2018 09:17:16</publishTime>
     </File>
     <File Include="Views/Web.config">
       <publishTime>10/31/2016 15:07:51</publishTime>
@@ -502,13 +505,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/31/2016 15:07:51</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>12/11/2017 18:36:53</publishTime>
+      <publishTime>01/17/2018 09:43:21</publishTime>
     </File>
     <File Include="Web.Debug.config">
       <publishTime>11/10/2016 16:45:27</publishTime>
     </File>
     <File Include="Web.Release.config">
-      <publishTime>11/07/2017 11:46:26</publishTime>
+      <publishTime>12/13/2017 09:58:16</publishTime>
     </File>
   </ItemGroup>
 </Project>

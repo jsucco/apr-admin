@@ -70,14 +70,11 @@
                     console.log("em_save", grids.SelectedRow);
                     this.disabled = 'true';
                     grids.HasNewRow = false;
-                    grids.NewRowCount++;
+                    
                     grids.dispatchEM(grids.ActionMethod);
-                    $("#em_save").prop("disabled", true);
-                    $("#em_cancel").prop("disabled", true);
-                    $("#em_add").removeAttr("disabled");
-                    $("#em_edit").removeAttr("disabled");
-                    $("#em_delete").removeAttr("disabled");
+                    grids.Cancel(); 
                     grids.ActionMethod = "";
+                    grids.NewRowCount++;
                     break;
                 case 'em_delete':
                     if (grids.SelectedRow.EM == 0) {
@@ -192,69 +189,35 @@
         ActionMethod: "",
         dispatchEM: function (method_) {
 
-            var em_arr = {
-                id: 0,
-                Email: "",
-                Code: "INS", 
-                CID: "000000",
-                INSCOMP: false,
-                AUTOCOMP: false,
-                INSCOMPEX: false,
-            };
-
             if (method_ == '') {
                 alert("grid action method error");
                 return; 
             }
 
-            $("#em_grid .editable").each(function (index, value) {
+            $.when(grids.CollectValues(method_)).done(function(em_arr) { 
 
-                var elem_id = $(this).attr('name');
-
-                console.log("elem_id", elem_id); 
-               
-                if (elem_id == 'Id')
-                    em_arr.id = $(this).val();
-                if (elem_id == 'Loc')
-                    em_arr.CID = $(this).val(); 
-                if (elem_id == 'Email')
-                    em_arr.Email = $(this).val();  
-                if (elem_id == 'INSCOMP')
-                    em_arr.INSCOMP = (!!$("#" + grids.SelectedRow.EM + "_INSCOMP").val()) ? $("#" + grids.SelectedRow.EM + "_INSCOMP").val() : false; 
-                if (elem_id == 'AUTOCOMP')
-                    em_arr.AUTOCOMP = (!!$("#" + grids.SelectedRow.EM + "_AUTOCOMP").val()) ? $("#" + grids.SelectedRow.EM + "_AUTOCOMP").val() : false; 
-                if (elem_id == 'INSCOMPEX')
-                    em_arr.INSCOMPEX = (!!$("#" + grids.SelectedRow.EM + "_INSCOMPEX").val()) ? $("#" + grids.SelectedRow.EM + "_INSCOMPEX").val() : false; 
-                    
-            });
-
-            console.log("inscomp", $("#" + grids.SelectedRow.EM + "_AUTOCOMP").val());
-
-            console.log("arrobj", em_arr);
-
-            $.ajax({
-                url: "/Manage/SaveEM", 
-                type: "POST", 
-                data: {method: method_, Email: em_arr.Email, CID: em_arr.CID, INSCOMP: em_arr.INSCOMP, AUTOCOMP: em_arr.AUTOCOMP, INSCOMPEX: em_arr.INSCOMPEX, Code: em_arr.Code, nav: "alerts"},
-                success: function(data, text, jax) {
-                    console.log("dispatch", data);
-                    console.log("selectedRow", grids.SelectedRow); 
-                    if (data.Result == true) {
-                        console.log(grids.ActionMethod);                       
-                        grids.refresh();
-                        grids.ActionMethod == "";
-                        if (!!grids.SelectedRow.EM)
-                            $("#em_grid").jqGrid('saveRow', grids.SelectedRow.EM);
-                        //document.getElementById('navigate').submit()
-                    } else {
-                        alert(data.ErrorMessage);
+                $.ajax({
+                    url: "/Manage/SaveEM", 
+                    type: "POST", 
+                    data: {method: method_, Email: em_arr.Email, CID: em_arr.CID, INSCOMP: em_arr.INSCOMP, AUTOCOMP: em_arr.AUTOCOMP, INSCOMPEX: em_arr.INSCOMPEX, Code: em_arr.Code, nav: "alerts"},
+                    success: function(data, text, jax) {
+ 
+                        if (data.Result == true) {
+                            console.log(grids.ActionMethod);                       
+                            grids.refresh();
+                            grids.ActionMethod == "";
+                            if (!!grids.SelectedRow.EM)
+                                $("#em_grid").jqGrid('saveRow', grids.SelectedRow.EM);
+                            //document.getElementById('navigate').submit()
+                        } else {
+                            alert(data.ErrorMessage);
+                        }
+                    },
+                    error: function(data) {
+                        alert(data);
                     }
-                },
-                error: function(data) {
-                    alert(data);
-                }
+                });
             });
-
 
         }, 
         refresh: function() { 
@@ -288,6 +251,69 @@
             $("#em_delete").prop("disabled", true);
             $("#em_save").removeAttr("disabled");
             $("#em_cancel").removeAttr("disabled");
+        }, 
+        CollectValues(method) { 
+
+            var em_arr = {
+                id: 0,
+                Email: "",
+                Code: "INS", 
+                CID: "000000",
+                INSCOMP: false,
+                AUTOCOMP: false,
+                INSCOMPEX: false,
+            };
+
+            $("#em_grid .editable").each(function (index, value) {
+
+                var elem_id = $(this).attr('name');
+
+                console.log("elem_id", elem_id); 
+               
+                if (elem_id == 'Id')
+                    em_arr.id = $(this).val();
+                if (elem_id == 'Loc')
+                    em_arr.CID = $(this).val(); 
+                if (elem_id == 'Email')
+                    em_arr.Email = $(this).val();  
+                console.log("collectvalues", method); 
+                console.log("#newrow_" + grids.NewRowCount + "_INSCOMP", $("#newrow_" + grids.NewRowCount + "_INSCOMP").val())
+                
+                switch(method) {
+                    case 'em_add': 
+                        if (elem_id == 'INSCOMP')
+                            em_arr.INSCOMP = (!!$("#newrow_" + grids.NewRowCount + "_INSCOMP").val()) ? $("#newrow_" + grids.NewRowCount + "_INSCOMP").val() : false; 
+                        if (elem_id == 'AUTOCOMP')
+                            em_arr.AUTOCOMP = (!!$("#newrow_" + grids.NewRowCount + "_AUTOCOMP").val()) ? $("#newrow_" + grids.NewRowCount + "_AUTOCOMP").val() : false; 
+                        if (elem_id == 'INSCOMPEX')
+                            em_arr.INSCOMPEX = (!!$("#newrow_" + grids.NewRowCount + "_INSCOMPEX").val()) ? $("#newrow_" + grids.NewRowCount + "_INSCOMPEX").val() : false; 
+                        break;
+                    default:
+                        if (elem_id == 'INSCOMP')
+                            em_arr.INSCOMP = (!!$("#" + grids.SelectedRow.EM + "_INSCOMP").val()) ? $("#" + grids.SelectedRow.EM + "_INSCOMP").val() : false; 
+                        if (elem_id == 'AUTOCOMP')
+                            em_arr.AUTOCOMP = (!!$("#" + grids.SelectedRow.EM + "_AUTOCOMP").val()) ? $("#" + grids.SelectedRow.EM + "_AUTOCOMP").val() : false; 
+                        if (elem_id == 'INSCOMPEX')
+                            em_arr.INSCOMPEX = (!!$("#" + grids.SelectedRow.EM + "_INSCOMPEX").val()) ? $("#" + grids.SelectedRow.EM + "_INSCOMPEX").val() : false; 
+                }              
+            });
+
+            if (em_arr.INSCOMP == 'true')
+                em_arr.INSCOMP = true; 
+            else 
+                em_arr.INSCOMP = false;
+
+            if (em_arr.AUTOCOMP == 'true')
+                em_arr.AUTOCOMP = true; 
+            else 
+                em_arr.AUTOCOMP = false; 
+
+            if (em_arr.INSCOMPEX == 'true')
+                em_arr.INSCOMPEX = true; 
+            else 
+                em_arr.INSCOMPEX = false; 
+
+            return em_arr;
         }
     };
 </script>

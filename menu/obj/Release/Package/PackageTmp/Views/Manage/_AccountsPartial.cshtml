@@ -1,1 +1,277 @@
 ﻿<h1 class="nav-content-header">Accounts</h1>
+<div class="manage-pp-container">
+    <div class="manage-pad" style="grid-row:1; grid-column: 1 / span 1;">
+        <h2>Admin User Manager</h2>
+        <div id="am_holder" class="auto-expand">
+            <table id="am_grid"></table>
+            <div id="am_pager"></div>
+        </div>
+        <div class="auto-expand">
+            <input id="am_add" type="button" value="ADD" class="amcrud" />
+            <input id="am_edit" type="button" value="EDIT" class="amcrud" />
+            <input id="am_delete" type="button" value="DELETE" />
+            <input id="am_save" disabled type="button" value="SAVE" class="amcrud" />
+            <input id="am_cancel" disabled type="button" value="CANCEL" class="amcrud" />
+        </div>
+    </div>
+
+</div>
+<style type="text/css">
+    .jqgfirstrow {
+        height: 0px !important;
+    }
+</style>
+
+<script type="text/javascript"> 
+
+    $(function () {
+        var amdata = @Html.Raw(Json.Encode(Model.amdata));
+
+        console.log(amdata); 
+
+        controls.LoadAdmins(amdata); 
+
+        $("#am_delete").click(function(e) { 
+            var target = e.currentTarget.id;
+            e.preventDefault(); 
+
+            console.log("am_delete"); 
+
+            if (controls.SelectedRow.AM == 0) {
+                alert("no row selected.");
+                return;
+            }
+            controls.ActionMethod = target;
+            controls.dispatch(target);
+        });
+
+        $(".amcrud").click(function (e) {
+            var target = e.currentTarget.id;
+
+            e.preventDefault(); 
+            e.stopPropagation(); 
+
+            console.log(".amcrud", target);
+            switch (target) {
+                case 'am_add':
+                    controls.HasNewRow = true;
+                    $("#am_grid").jqGrid('addRow', {rowID: "newrow_" + controls.NewRowCount});
+                    $("#newrow_" + controls.NewRowCount + "_Loc_Description").val("Flagboard " + (controls.MaxId + 1)); 
+
+                    controls.ActionMethod = target;
+                    this.disabled = 'true'
+                    $("#am_edit").prop("disabled", true);
+                    $("#am_save").removeAttr("disabled");
+                    $("#am_cancel").removeAttr("disabled");
+                    controls.SelectedRow = "newrow_" + controls.NewRowCount;
+                    break;
+                case 'am_edit':
+                    if (controls.SelectedRow.AM == 0) {
+                        alert("no row selected.");
+                        return;
+                    }
+                    controls.ActionMethod = target;
+                    $("#am_grid").jqGrid('editRow', controls.SelectedRow.AM);
+                    $("#am_add").prop("disabled", true);
+                    $("#am_edit").prop("disabled", true);
+                    $("#am_save").removeAttr("disabled");
+                    $("#am_cancel").removeAttr("disabled");
+                    break;
+                case 'am_save':
+                    this.disabled = 'true';
+                    controls.HasNewRow = false;
+                    controls.NewRowCount++;
+                    controls.dispatch(controls.ActionMethod); 
+                    $("#am_save").prop("disabled", true);
+                    $("#am_cancel").prop("disabled", true);
+                    $("#am_add").removeAttr("disabled");
+                    $("#am_edit").removeAttr("disabled");
+                    controls.ActionMethod = "";
+                    break;
+                case 'am_cancel':
+                    controls.HasNewRow = false;
+                    $("#am_grid").jqGrid('restoreRow', "newrow_" + controls.NewRowCount);
+                    $("#am_grid").jqGrid('restoreRow', controls.SelectedRow.AM);
+                    $("#am_save").prop("disabled", true);
+                    $("#am_cancel").prop("disabled", true);
+                    $("#am_add").removeAttr("disabled");
+                    $("#am_edit").removeAttr("disabled");
+                    controls.ActionMethod = "";
+                    break; 
+            }
+        }); 
+    });
+
+    var controls = { 
+        LoadAdmins: function(array) { 
+
+            console.log(array); 
+
+            $("#am_grid").jqGrid({ 
+                datatype: "local",
+                data: array, 
+                colNames: ["Email Id", "Email Address", "Status"], 
+                colModel: [
+                    {name: "id", index: "id", editable: false, width: 70 }, 
+                    {name: "Address", index: "Address", editable: true, width: 250 }, 
+                    {name: "Status", index: "Status", editable: true, width: 70, edittype: 'select', editoptions: {value:"false:false;true:true"} }, 
+                ],
+                pager: "#am_pager", 
+                Caption: "Manage Admin Users", 
+                height: "98%", 
+                multiselect: false, 
+                loadonce: false, 
+                gridview: true, 
+                scroll: false, 
+                width: 392, 
+                shrinkToFit: false, 
+                autowidth: false, 
+                rowNum: 10, 
+                onSelectRow: function(rowid) { 
+                    var ID_cell = $("#" + rowid).find("td[aria-describedby='am_grid_id']").html(); 
+
+                    console.log(rowid, ID_cell);  
+
+                    if (ID_cell == "&nbsp;") 
+                        controls.SelectedDataId.AM = new Number(0); 
+                    else 
+                        controls.SelectedDataId.AM = new Number(ID_cell);
+
+                    console.log(controls.SelectedDataId.AM); 
+
+                    controls.SelectedRow.AM = rowid; 
+                }, 
+                ondblClickRow: function(row, iCol, cellcontent, e) {
+                    var ID_cell = $("#" + rowid).find("td[aria-describedby='am_grid_id']").html(); 
+
+                    controls.SelectedDataId.AM = new Number(ID_cell); 
+                    controls.SelectedRow.AM = row; 
+
+                    if (controls.SelectedDataId.AM > 0) {
+                        $("#am_grid").jqGrid('editRow', row);
+                        $("#am_grid_save", "#cancel").attr("disabled", false);
+                    }
+                },
+                onPaging: function(pg) {
+
+                    var lastpage = $("#am_grid").getGridParam('lastpage')
+
+                    switch (pg) {
+                        case 'next_pager':
+                            if (controls.SelectedPage.AM < lastpage) {
+                                controls.SelectedPage.AM = controls.SelectedPage.AM + 1
+                            }
+                            break;
+                        case 'prev_pager':
+                            if (controls.SelectedPage.AM > 1) {
+                                controls.SelectedPage.AM = controls.SelectedPage.AM - 1
+                            }
+                            break;
+                        case 'last_pager':
+                            grid.SelectedPage.AM = lastpage
+                            break;
+                        case 'first_pager':
+                            grid.SelectedPage.AM = 1
+                            break;
+                    }
+                }
+            });
+        }, 
+        dispatch: function(method_) { 
+
+            console.log("dispatch", method_); 
+
+            var edit_arr = { 
+                id: 0, 
+                Address: "", 
+                Status: null
+            }
+
+            if (method_ == '') 
+            { 
+                alert("Admin user grid action method error."); 
+                return; 
+            }
+
+            if (method_ == "am_delete") { 
+                edit_arr.id = controls.SelectedDataId.AM; 
+                edit_arr.Status = false; 
+            } else { 
+                $("#am_grid .editable").each(function(index, value) { 
+
+                    var elem_id = $(this).attr('name');
+
+                    if (elem_id == "id")
+                        edit_arr.id = $(this).val();                 
+                    else if (elem_id == "Address") 
+                        edit_arr.Address = $(this).val(); 
+                    else if (elem_id == "Status")
+                        edit_arr.Status = $(this).val(); 
+                    
+                });
+            }
+
+            if (method_ == "am_delete") { 
+                var c = confirm("Are you sure you want to delete \n" +
+                                    "record with EmailId of " + edit_arr.id)
+
+                if (!c)
+                    return; 
+            } else { 
+                if (edit_arr.Address.split("@@").length != 2) { 
+                    alert("Email Address incorrectly formatted"); 
+                    return; 
+                }
+
+                if (edit_arr.Status == null) { 
+                    alert("error retrieving admin status."); 
+                    return; 
+                }
+            }
+
+            $.ajax({ 
+                url: '/Manage/SaveAM', 
+                type: 'POST', 
+                data: {method: method_, id: controls.SelectedDataId.AM, address: edit_arr.Address, status: edit_arr.Status, nav: "adminuser"},
+                success: function(data, text, jax) { 
+                    console.log("dispath", data); 
+
+                    if (data.Result == true) { 
+                        controls.Refresh(); 
+                        controls.ActionMethod = ""; 
+
+                        if (!!controls.SelectedRow.AM)
+                            $("#am_grid").jqGrid('saveRow', controls.SelectedRow.AM); 
+                    } else { 
+                        alert(data.ErrorMessage); 
+                    }
+                }, 
+                error: function(data) { 
+                    alert(data); 
+                }
+            })
+        },
+        Refresh: function() { 
+            $.ajax({ 
+                url: '/Manage/RefreshAM', 
+                type: 'POST', 
+                success: function(grid_data) { 
+                    console.log("grid_data", grid_data); 
+
+                    $("#am_grid").jqGrid('clearGridData', true); 
+                    $("#am_grid").jqGrid('setGridParam', {data : grid_data, page: controls.SelectedPage.AM}).trigger('reloadGrid'); 
+                }, 
+                error: function(data) { 
+                    alert(data); 
+                }
+            })
+        },
+        SelectedDataId: {AM: 0},
+        SelectedRow: {AM: 0 }, 
+        SelectedPage: {AM: 1 }, 
+        NewRowCount: 0, 
+        HasNewRow: false, 
+        ActionMethod: "", 
+        MaxId: 0
+    }
+</script>

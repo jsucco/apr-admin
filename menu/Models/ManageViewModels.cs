@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNet.Identity;
+using menu.Models; 
 
 namespace menu.Models
 {
@@ -11,12 +12,13 @@ namespace menu.Models
         public bool AlertsSelected { get; set; }
         public bool UtilitySelected { get; set; }
         public bool FlagboardsSelected { get; set; }
-        public bool ActivitySelected { get; set; }
+        public bool AdminUserSelected { get; set; }
         public bool QASelected { get; set; }
         public QAPartialViewModel ChildViewModel { get; set; }
         public FbPartialViewModel FbChildViewModel { get; set; }
         public AlPartialViewModel AlChildViewModel { get; set; }
         public UtilityViewModel UlChildViewModel { get; set; }
+        public string CID { get; set; }
     }
 
     public class MethodResponse
@@ -67,6 +69,11 @@ namespace menu.Models
     {
         public string Key { get; set; }
         public string IframeUrl { get; set; }
+    }
+
+    public class AdminUserViewModel
+    {
+        public AdminsGridView[] amdata { get; set; }
     }
 
     public class AlertManager
